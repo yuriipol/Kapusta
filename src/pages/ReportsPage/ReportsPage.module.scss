@@ -1,0 +1,61 @@
+@import '../../shared/styles/';
+
+.reportsContainer {
+  padding-left: 123px;
+  padding-right: 123px;
+}
+.reportsNav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttonBack {
+  display: flex;
+  align-items: center;
+
+  background-color: transparent;
+}
+.buttonBackArrow {
+  margin-right: 16px;
+  fill: $color-accent;
+  width: 24px;
+  height: 24px;
+}
+.currentPeriod_month {
+  display: flex;
+}
+.buttonPeriod {
+  display: flex;
+
+  align-items: center;
+
+  background-color: transparent;
+}
+.buttonPeriod_svg {
+  width: 4px;
+  height: 10px;
+  stroke: $color-accent;
+  fill: transparent;
+}
+.currentPeriodText {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.2;
+  text-align: center;
+  letter-spacing: 0.04em;
+
+  color: rgba(82, 85, 95, 0.7);
+}
+.currentPeriod_month {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  color: #000000;
+}

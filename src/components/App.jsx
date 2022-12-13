@@ -1,9 +1,16 @@
+
 import HomePage from 'pages/HomePage/HomePage';
+import ReportsPage from '../pages/ReportsPage/ReportsPage';
+import AuthPage from '../pages/AuthPage/AuthPage';
 
 export const App = () => {
   return (
-    <>
-      <HomePage />
-    </>
+
+
+    <div>
+      {/* <HomePage /> */}
+      <ReportsPage />
+       <AuthPage />
+    </div>
   );
 };
