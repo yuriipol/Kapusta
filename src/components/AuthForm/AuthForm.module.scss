@@ -8,15 +8,16 @@
   background-color: $bg-color-primary;
   @include media-query(mobile) {
     bottom: 105px;
-    right: 20px;
+    left: 20px;
 
-    width: 280px;
+    min-width: 280px;
     min-height: 496px;
     padding: 40px 20px;
   }
   @include media-query(tablet) {
     bottom: 155px;
-    right: 171px;
+
+    left: 171px;
 
     width: 426px;
     min-height: 552px;
@@ -24,7 +25,7 @@
   }
   @include media-query(desktop) {
     top: 120px;
-    right: 90px;
+    left: 763px;
   }
 }
 
