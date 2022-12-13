@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 // import { useNavigate } from 'react-router-dom';
 
-import GoogleLogo from '../../shared/images/google-symbol_lg.svg';
+import GoogleLogo from '../../shared/images/auth/google-symbol_lg.svg';
 import s from './AuthForm.module.scss';
 
 const AuthForm = ({ onSubmit }) => {
@@ -37,12 +37,12 @@ const AuthForm = ({ onSubmit }) => {
   return (
     <>
       <form className={s.form} onSubmit={handleSubmit}>
-        <p className={s.text}> You can log in with your Google Account:</p>
+        <p className={s.textUp}> You can log in with your Google Account:</p>
         <a className={s.link} href="./">
           <img className={s.googleIcon} src={GoogleLogo} alt="Google Logo" />
           Google
         </a>
-        <p className={s.text}>
+        <p className={s.textDown}>
           Or log in using an email and password, after registering:
         </p>
 
@@ -68,7 +68,7 @@ const AuthForm = ({ onSubmit }) => {
         <div className={s.formItem}>
           <input
             className={s.formInput}
-            placeholder="••••••••"
+            placeholder="Password"
             type="password"
             name="password"
             value={password}
