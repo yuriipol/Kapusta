@@ -1,1 +1,37 @@
 @import '../../index.scss';
+
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // height: 56px;
+  // justify-content: space-between;
+  // padding: 10px;
+  border: 1px solid red;
+}
+
+.logo {
+  height: 31px;
+  width: 90px;
+  // margin-left: 32px;
+  margin: 13px 0 12px 32px;
+}
+
+.list {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 32px;
+}
+
+.exit {
+  font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 14px;
+/* identical to box height */
+
+letter-spacing: 0.04em;
+text-decoration-line: underline;
+}

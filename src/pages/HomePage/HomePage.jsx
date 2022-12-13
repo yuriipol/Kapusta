@@ -2,10 +2,12 @@ import Chart from '../../shared/images/HomePage/chart.png';
 import Calendar from 'components/Calendar/Calendar';
 import Accordion from 'components/Accordion/Accordion';
 import s from './HomePage.module.scss';
+import Header from 'components/Header/Header';
 
 const HomePage = () => {
   return (
     <>
+    <Header></Header>
       <section className={s.section}>
         <div className="container">
           <div className={s.wrapper}>
