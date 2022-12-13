@@ -22,8 +22,6 @@ const Accordion = () => {
         <div>
           <Calendar />
           <Product />
-          <button className={s.btn}>Input</button>
-          <button className={s.btn}>Clear</button>
         </div>
       )}
     </div>
