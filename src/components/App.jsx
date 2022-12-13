@@ -1,19 +1,15 @@
+
+import HomePage from 'pages/HomePage/HomePage';
+import ReportsPage from '../pages/ReportsPage/ReportsPage';
 import AuthPage from '../pages/AuthPage/AuthPage';
 
 export const App = () => {
   return (
-    // <div
-    //   style={{
-    //     height: '100vh',
-    //     display: 'flex',
-    //     justifyContent: 'center',
-    //     alignItems: 'center',
-    //     fontSize: 40,
-    //     color: '#010101'
-    //   }}
-    // >
-    //   React homework template
-    // </div>
-    <AuthPage />
+    <div>
+      {/* <HomePage /> */}
+      <ReportsPage />
+       <AuthPage />
+    </div>
+
   );
 };
