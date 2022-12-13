@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import Calendar from '../../shared/images/HomePage/calendar.png';
-import s from './Date.module.scss';
+import Icon from '../../shared/images/HomePage/calendar.png';
+import s from './Calendar.module.scss';
 
-const Date = () => {
+const Calendar = () => {
   const [startDate, setStartDate] = useState(new Date());
   return (
     <div className={s.date}>
-      <img className={s.calendar} src={Calendar} alt="Calendar" />
+      <img className={s.calendar} src={Icon} alt="Calendar" />
       <DatePicker
         className={s.DatePicker}
         selected={startDate}
@@ -19,4 +19,4 @@ const Date = () => {
   );
 };
 
-export default Date;
+export default Calendar;

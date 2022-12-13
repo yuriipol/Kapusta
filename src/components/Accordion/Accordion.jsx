@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Date from 'components/Date/Date';
+import Calendar from 'components/Calendar/Calendar';
 
 const Accordion = () => {
   const [isShow, setIsShow] = useState(false);
@@ -17,7 +17,9 @@ const Accordion = () => {
       </button>
       {isShow && (
         <div>
-          <Date />
+          <Calendar />
+          <p>Product description</p>
+          <button>Input</button>
         </div>
       )}
     </div>

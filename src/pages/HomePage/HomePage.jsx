@@ -1,5 +1,6 @@
 import Chart from '../../shared/images/HomePage/chart.png';
-import Date from 'components/Date/Date';
+import Calendar from 'components/Calendar/Calendar';
+import Accordion from 'components/Accordion/Accordion';
 import s from './HomePage.module.scss';
 
 const HomePage = () => {
@@ -15,12 +16,13 @@ const HomePage = () => {
           <button className={s.balance}>55000.00 UAN</button>
           <button className={s.confirm}>Confirm</button>
         </div>
-        <Date />
+        <Calendar />
       </section>
       <div className={s.btn}>
         <button className={s.button}>Expenses</button>
         <button className={s.button}>Income</button>
       </div>
+      <Accordion />
     </>
   );
 };
