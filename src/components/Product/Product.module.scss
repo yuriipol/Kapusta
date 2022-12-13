@@ -1,0 +1,20 @@
+@import '../../index.scss';
+
+.background {
+  min-width: 320px;
+  background-color: $bg-color-secondary;
+  border-radius: 0px 0px 0px 100px;
+}
+
+.text {
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.02em;
+
+  color: #c7ccdc;
+}
+
+.vector {
+  width: 10px;
+  height: 4px;
+}

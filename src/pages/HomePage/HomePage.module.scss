@@ -1,10 +1,9 @@
 @import '../../index.scss';
 
-.section {
-  width: 320px;
-  background-image: url(../../shared/images/HomePage/background.png);
-  background-size: 320px 352px;
-  background-repeat: no-repeat;
+.background {
+  min-width: 320px;
+  background-color: $bg-color-secondary;
+  border-radius: 0px 0px 0px 100px;
 }
 
 .wrapper {
@@ -12,7 +11,17 @@
   align-items: center;
   justify-content: center;
   gap: 15px;
+  padding-top: 40px;
   margin-bottom: 40px;
+
+  @include media-query(tablet) {
+    justify-content: flex-end;
+    position: absolute;
+    left: 652px;
+    top: 50px;
+    margin: 0;
+    padding: 0;
+  }
 }
 
 .text {
@@ -26,42 +35,6 @@
 .chart {
   width: 24px;
   height: 24px;
-  color: $color-secondary;
-}
-
-.balance {
-  width: 140px;
-  height: 44px;
-  border: 2px solid #ffffff;
-  border-radius: 22px 0px 0px 22px;
-  background-color: transparent;
-
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 1.17;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: #000000;
-}
-
-.confirm {
-  width: 140px;
-  height: 44px;
-  border: 2px solid #ffffff;
-  border-radius: 0px 22px 22px 0px;
-  background-color: transparent;
-
-  font-size: 12px;
-  line-height: 1.17;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: rgba(82, 85, 95, 0.7);
-
-  &:hover,
-  &:focus {
-    color: #ffffff;
-    background-color: $color-accent;
-  }
 }
 
 .btn {

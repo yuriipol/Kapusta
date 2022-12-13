@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import Icon from '../../shared/images/HomePage/calendar.png';
+import Icon from '../../shared/images/HomePage/calendar.svg';
 import s from './Calendar.module.scss';
 
 const Calendar = () => {
