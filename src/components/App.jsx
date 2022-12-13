@@ -5,11 +5,12 @@ import AuthPage from '../pages/AuthPage/AuthPage';
 
 export const App = () => {
   return (
+
+
     <div>
       {/* <HomePage /> */}
       <ReportsPage />
        <AuthPage />
     </div>
-
   );
 };

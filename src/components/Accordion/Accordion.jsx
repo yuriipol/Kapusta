@@ -1,31 +1,31 @@
 import { useState } from 'react';
 import Calendar from 'components/Calendar/Calendar';
-import Summary from 'components/Summary/Summary';
+import Product from 'components/Product/Product';
+
 import s from './Accordion.module.scss';
 
 const Accordion = () => {
-  const [isShow, setIsShow] = useState(false);
+  const [isShow, setIsShow] = useState(true);
 
   const clickBtn = () => {
     setIsShow(!isShow);
   };
   return (
     <div>
-      <button type="button" onClick={clickBtn}>
+      <button className={s.expences} type="button" onClick={clickBtn}>
         Expenses
       </button>
-      <button type="button" onClick={clickBtn}>
+      <button className={s.income} type="button" onClick={clickBtn}>
         Income
       </button>
       {isShow && (
         <div>
           <Calendar />
-          <p>Product description</p>
+          <Product />
           <button className={s.btn}>Input</button>
           <button className={s.btn}>Clear</button>
         </div>
       )}
-      <Summary />
     </div>
   );
 };
