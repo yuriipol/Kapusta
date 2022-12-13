@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/kapusta/static/css/main.3f26e4d1.css",
+    "main.css": "/kapusta/static/css/main.6a99ca53.css",
     "main.js": "/kapusta/static/js/main.07d3183d.js",
     "index.html": "/kapusta/index.html",
-    "main.3f26e4d1.css.map": "/kapusta/static/css/main.3f26e4d1.css.map",
+    "main.6a99ca53.css.map": "/kapusta/static/css/main.6a99ca53.css.map",
     "main.07d3183d.js.map": "/kapusta/static/js/main.07d3183d.js.map"
   },
   "entrypoints": [
-    "static/css/main.3f26e4d1.css",
+    "static/css/main.6a99ca53.css",
     "static/js/main.07d3183d.js"
   ]
 }
