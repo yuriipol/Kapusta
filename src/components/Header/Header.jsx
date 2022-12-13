@@ -7,9 +7,9 @@ const Header = () => {
     <div className={style.head}>
       <img className={style.logo} alt="logo" src={logo}></img>
       <ul className={style.list}>
-        <li>U</li>
-        <li>User Name</li>
-        <li>|</li>
+        <li className={style.userAvatar}>U</li>
+        <li className={style.username}>User Name</li>
+        <li className={style.devideSvg}></li>
         <li className={style.exit}>Exit</li>
       </ul>
     </div>

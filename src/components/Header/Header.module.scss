@@ -5,33 +5,67 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  // height: 56px;
-  // justify-content: space-between;
-  // padding: 10px;
-  border: 1px solid red;
+  padding: 10px;
 }
 
 .logo {
   height: 31px;
   width: 90px;
-  // margin-left: 32px;
-  margin: 13px 0 12px 32px;
+  padding: 2px 0 3px 6px;
 }
 
 .list {
   display: flex;
+  align-items: center;
+  text-align: center;
+
   justify-content: space-between;
-  margin-right: 32px;
+  padding-right: 16px;
+}
+.userAvatar{
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #F5F6FA;
+  margin-right: 12px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  letter-spacing: 0.04em;
+  color: #52555F;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.username {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: right;
+  letter-spacing: 0.04em;
+  color: #52555F;
+  margin-right: 20px;
+}
+
+.devideSvg{
+  width: 0px;
+  height: 34px;
+  border: 1px solid #E0E5EB;
+  margin-right: 20px;
 }
 
 .exit {
-  font-family: 'Roboto';
+font-family: 'Roboto';
 font-style: normal;
 font-weight: 400;
 font-size: 12px;
 line-height: 14px;
-/* identical to box height */
-
 letter-spacing: 0.04em;
 text-decoration-line: underline;
 }
