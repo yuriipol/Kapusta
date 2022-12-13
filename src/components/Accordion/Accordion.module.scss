@@ -1,0 +1,21 @@
+.btn {
+  width: 136px;
+  height: 44px;
+
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  color: #52555f;
+  background: #ffffff;
+  border: 2px solid #f6f7fc;
+  border-radius: 16px;
+
+  &:hover,
+  &:focus {
+    color: #ffffff;
+    background: #ff751d;
+  }
+}
