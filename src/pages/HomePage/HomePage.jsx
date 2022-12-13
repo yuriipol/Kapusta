@@ -1,14 +1,8 @@
-import { useState } from 'react';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-
 import Chart from '../../shared/images/HomePage/chart.png';
-import Calendar from '../../shared/images/HomePage/calendar.png';
-
+import Date from 'components/Date/Date';
 import s from './HomePage.module.scss';
 
 const HomePage = () => {
-  const [startDate, setStartDate] = useState(new Date());
   return (
     <>
       <section className={s.section}>
@@ -20,16 +14,8 @@ const HomePage = () => {
           <p className={s.text}>Balance:</p>
           <button className={s.balance}>55000.00 UAN</button>
           <button className={s.confirm}>Confirm</button>
-          <div className={s.date}>
-            <img className={s.calendar} src={Calendar} alt="Calendar" />
-            <DatePicker
-              className={s.DatePicker}
-              selected={startDate}
-              onChange={date => setStartDate(date)}
-              dateFormat="dd.MM.yyyy"
-            />
-          </div>
         </div>
+        <Date />
       </section>
       <div className={s.btn}>
         <button className={s.button}>Expenses</button>

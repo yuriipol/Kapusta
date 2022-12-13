@@ -3,6 +3,7 @@
 .section {
   width: 320px;
   background-image: url(../../shared/images/HomePage/background.png);
+  background-size: 320px 352px;
   background-repeat: no-repeat;
 }
 
@@ -55,33 +56,12 @@
   letter-spacing: 0.02em;
   text-transform: uppercase;
   color: rgba(82, 85, 95, 0.7);
-}
 
-.date {
-  display: flex;
-  align-items: center;
-  height: 40px;
-  width: 102px;
-  gap: 8px;
-}
-
-.calendar {
-  width: 20px;
-  height: 20px;
-}
-
-.DatePicker {
-  border: none;
-  font-weight: 900;
-  font-size: 12px;
-  line-height: 1.17;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: $color-secondary;
-  background-color: transparent;
-
-  // @include media-query(tablet) {
-  // }
+  &:hover,
+  &:focus {
+    color: #ffffff;
+    background-color: $color-accent;
+  }
 }
 
 .btn {
@@ -103,4 +83,10 @@
 
   color: #000000;
   background: #f5f6fb;
+
+  &:hover,
+  &:focus {
+    color: #ffffff;
+    background-color: $color-accent;
+  }
 }
