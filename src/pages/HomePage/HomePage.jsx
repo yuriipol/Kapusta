@@ -8,7 +8,7 @@ const HomePage = () => {
   return (
     <>
     <Header></Header>
-      <section className={s.section}>
+      {/* <section className={s.section}>
         <div className="container">
           <div className={s.wrapper}>
             <p className={s.text}>Reports</p>
@@ -24,7 +24,7 @@ const HomePage = () => {
         <button className={s.button}>Expenses</button>
         <button className={s.button}>Income</button>
       </div>
-      <Accordion />
+      <Accordion /> */}
     </>
   );
 };
