@@ -11,6 +11,7 @@ import useResizeScreen from 'shared/hooks/useResizeScreen';
 
 import Chart from '../../shared/images/HomePage/chart.svg';
 import s from './HomePage.module.scss';
+import Header from 'components/Header/Header';
 
 const HomePage = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
