@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import GoogleLogo from '../../shared/images/auth/google-symbol_lg.svg';
 import s from './AuthForm.module.scss';
@@ -8,14 +8,14 @@ import s from './AuthForm.module.scss';
 const AuthForm = ({ onSubmit }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  //   const navigate = useNavigate();
+  const navigate = useNavigate();
 
   function handleSubmit(event) {
     event.preventDefault();
 
-    const data = { email, password };
+    // const data = { email, password };
 
-    onSubmit(data);
+    // onSubmit(data);
     setEmail('');
     setPassword('');
   }
@@ -86,13 +86,17 @@ const AuthForm = ({ onSubmit }) => {
         </div>
 
         <div className={s.btnGroup}>
-          <button type="submit" className={s.btn}>
+          <button
+            type="submit"
+            className={s.btn}
+            onClick={() => navigate('/home')}
+          >
             log in
           </button>
           <button
             type="button"
             className={s.btn}
-            // onClick={() => navigate('/registration')}
+            onClick={() => navigate('/home')}
           >
             Registration
           </button>
@@ -105,5 +109,6 @@ const AuthForm = ({ onSubmit }) => {
 export default AuthForm;
 
 AuthForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
+  // onSubmit: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func,
 };
