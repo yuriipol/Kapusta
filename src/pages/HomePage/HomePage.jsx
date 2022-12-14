@@ -6,12 +6,13 @@ import Accordion from 'components/Accordion/Accordion';
 import Product from 'components/Product/Product';
 import Summary from 'components/Summary/Summary';
 import Modal from 'components/Modal/Modal';
+import Table from '../../components/Table/Table';
 
 import useResizeScreen from 'shared/hooks/useResizeScreen';
 
 import Chart from '../../shared/images/HomePage/chart.svg';
 import s from './HomePage.module.scss';
-import Header from 'components/Header/Header';
+// import Header from 'components/Header/Header';
 
 const HomePage = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
@@ -73,6 +74,7 @@ const HomePage = () => {
         <Accordion />
       </div>
       <Summary />
+      <Table />
     </>
   );
 };

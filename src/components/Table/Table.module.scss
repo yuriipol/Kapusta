@@ -1,0 +1,192 @@
+@import '../../index.scss';
+.wrapper {
+  margin-bottom: 60px;
+
+  @include media-query(mobile) {
+  }
+  @include media-query(tablet) {
+    width: 624px;
+  }
+  @include media-query(desktop) {
+    width: 746px;
+  }
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.tHead,
+.tHead__categ,
+.tHead_sum,
+.tHead_bask {
+  font-family: 'Roboto';
+
+  @include media-query(mobile) {
+  }
+  @include media-query(tablet) {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    text-align: center;
+    color: $color-primary;
+    padding: 11px;
+    background-color: $color-secondary-accent;
+  }
+  @include media-query(desktop) {
+  }
+}
+
+.tHead_sum {
+  @include media-query(mobile) {
+  }
+  @include media-query(tablet) {
+    text-align: right;
+  }
+  @include media-query(desktop) {
+    text-align: center;
+  }
+}
+.tHead {
+  @include media-query(mobile) {
+  }
+  @include media-query(tablet) {
+    text-align: left;
+  }
+  @include media-query(desktop) {
+  }
+}
+
+.tRow {
+  border-bottom: 2px solid $color-secondary-accent;
+}
+
+.tD_data,
+.tD_descr,
+.tD_categ,
+.incom,
+.outcom {
+  font-family: 'Roboto';
+
+  @include media-query(mobile) {
+  }
+  @include media-query(tablet) {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.04em;
+    text-transform: none;
+    text-align: left;
+    color: $color-secondary;
+    padding: 12px 0;
+  }
+  @include media-query(desktop) {
+  }
+}
+
+.incom {
+  font-weight: 700;
+
+  color: #407946;
+  @include media-query(mobile) {
+  }
+  @include media-query(tablet) {
+    text-align: right;
+  }
+  @include media-query(desktop) {
+    text-align: center;
+  }
+}
+
+.outcom {
+  font-weight: 700;
+  color: #e7192e;
+  @include media-query(mobile) {
+  }
+  @include media-query(tablet) {
+    text-align: right;
+  }
+  @include media-query(desktop) {
+    text-align: center;
+  }
+}
+
+.tD_data {
+  @include media-query(mobile) {
+  }
+  @include media-query(tablet) {
+    width: 95px;
+  }
+  @include media-query(desktop) {
+  }
+}
+.tD_descr {
+  @include media-query(mobile) {
+  }
+  @include media-query(tablet) {
+    min-width: 140px;
+  }
+  @include media-query(desktop) {
+    min-width: 150px;
+  }
+}
+
+.tD_categ {
+  @include media-query(mobile) {
+  }
+  @include media-query(tablet) {
+    min-width: 116px;
+  }
+  @include media-query(desktop) {
+  }
+}
+.tD_sum {
+  @include media-query(mobile) {
+  }
+  @include media-query(tablet) {
+    min-width: 110px;
+  }
+  @include media-query(desktop) {
+  }
+}
+
+.tD_bask {
+  @include media-query(mobile) {
+  }
+  @include media-query(tablet) {
+    width: 90px;
+  }
+
+  @include media-query(desktop) {
+    width: 100px;
+  }
+}
+
+.tD_categ,
+.tD_sum,
+.tD_bask {
+  text-align: center;
+}
+
+.basket {
+  width: 18px;
+  height: 18px;
+}
+
+.helper {
+  width: 32px;
+  height: 32px;
+
+  border-radius: 50%;
+  margin: 0;
+  padding: 7px;
+  margin: 0 auto;
+  background-color: $bg-color-primary;
+  &:hover,
+  &:focus {
+    background-color: $color-secondary-accent;
+  }
+}
