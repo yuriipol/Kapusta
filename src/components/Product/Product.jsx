@@ -3,11 +3,15 @@ import s from './Product.module.scss';
 
 const Product = () => {
   return (
-    <div className={s.background}>
-      <p className={s.text}>Product description</p>
-      <p className={s.text}>Product category</p>
-      <img className={s.vector} src={Vector} alt="Vector" />
-    </div>
+    <>
+      <div className={s.background}>
+        <input type="text" placeholder="Product description" />
+        <input type="text" placeholder="Product category" />
+        <img className={s.vector} src={Vector} alt="Vector" />
+      </div>
+      <button className={s.btn}>Input</button>
+      <button className={s.btn}>Clear</button>
+    </>
   );
 };
 
