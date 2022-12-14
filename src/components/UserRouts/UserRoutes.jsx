@@ -1,18 +1,26 @@
 import { Route, Routes } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
 
-import AuthPage from 'pages/AuthPage/AuthPage';
-import HomePage from 'pages/HomePage/HomePage';
-import ReportsPage from 'pages/ReportsPage/ReportsPage';
-import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
+import PrivateRoute from './PrivateRoute';
+
+const AuthPage = lazy(() => import('pages/AuthPage/AuthPage'));
+const HomePage = lazy(() => import('pages/HomePage/HomePage'));
+const ReportsPage = lazy(() => import('pages/ReportsPage/ReportsPage'));
+const NotFoundPage = lazy(() => import('pages/NotFoundPage/NotFoundPage'));
 
 const UserRoutes = () => {
   return (
-    <Routes>
-      <Route path="/" element={<AuthPage />} />
-      <Route path="/home" element={<HomePage />} />
-      <Route path="/reports" element={<ReportsPage />} />
-      <Route path="*" element={<NotFoundPage />} />
-    </Routes>
+    <Suspense fallback={<h3>Loading page...</h3>}>
+      <Routes>
+        <Route path="/" element={<AuthPage />} />
+        <Route element={<PrivateRoute />}>
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/reports" element={<ReportsPage />} />
+        </Route>
+
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </Suspense>
   );
 };
 
