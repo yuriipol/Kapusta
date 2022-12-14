@@ -7,6 +7,7 @@
 .reportsNav {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 32px;
 }
 
 .buttonBack {
@@ -59,3 +60,58 @@
 
   color: #000000;
 }
+.budget {
+  display: flex;
+  justify-content: center;
+ 
+  padding: 7px;
+  margin-bottom: 32px ;
+
+  box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+border-radius: 30px;
+}
+.budgetText {
+  padding: 8px 20px;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  color: $color-secondary;
+  &:not(:last-child) {
+    border-right: 1px solid #E0E5EB;
+  }
+  
+  & .budgetText_expanse {
+    margin-left: 15px;
+    color: #e53935;
+  }
+  & .budgetText_income {
+    margin-left: 15px;
+    color: #407946;
+  }
+}
+
+
+.budget_category {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  
+  padding: 20px 200px;
+  
+  box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+  border-radius: 30px;
+}
+
+.budget_category_type {
+  display: flex;
+  margin-bottom: 32px;
+}
+
+.budget_type { 
+  margin: 0 16px;
+}
+
