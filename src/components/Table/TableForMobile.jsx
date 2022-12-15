@@ -1,8 +1,8 @@
-// import PropTypes from 'prop-types';
+// TableForMobile.jsx;
 import Basket from '../../shared/images/HomePage/delete.svg';
 import s from './Table.module.scss';
 
-// !!!!!const data видалити, коли будуть дані
+// const data видалити, коли будуть дані
 const data = [
   {
     data: '05.09.2019',
@@ -31,18 +31,23 @@ const difClass = suma => {
   return result;
 };
 
-const Table = () => {
+const TableForMobile = () => {
   console.log(difClass(1000));
   const rows = data.map(({ data, description, category, sum, id }) => {
     const suma = Number.parseFloat(sum);
 
     return (
       <tr key={id} className={s.tRow}>
-        <td className={s.tD_data}>{data}</td>
-        <td className={s.tD_descr}>{description}</td>
-        <td className={s.tD_categ}>{category}</td>
+        <td className={s.tD_descr}>
+          {description}
+          <div>
+            <span className={s.tD_data}>{data}</span>
+            <span className={s.tD_categ}>{category}</span>
+          </div>
+        </td>
+
         <td className={`${suma >= 0 ? s.incom : s.outcom}`}>
-          {sum}{' '}
+          {sum}
           <span className={`${suma >= 0 ? s.incom : s.outcom}`}>UAH.</span>
         </td>
         <td className={s.tD_bask}>
@@ -56,24 +61,14 @@ const Table = () => {
   return (
     <div className={s.wrapper}>
       <table className={s.table}>
-        <thead>
-          <tr className={s.tRow}>
-            <th className={s.tHead}>Date</th>
-            <th className={s.tHead}>Description</th>
-            <th className={s.tHead__categ}>Category</th>
-            <th className={s.tHead_sum}>Sum</th>
-            <th className={s.tHead_bask}></th>
-          </tr>
-        </thead>
-
         <tbody>{rows}</tbody>
       </table>
     </div>
   );
 };
 
-export default Table;
+export default TableForMobile;
 
-// Table.propTypes = {
+// TableForMobile.propTypes = {
 //   //   onSubmit: PropTypes.func,
 // };

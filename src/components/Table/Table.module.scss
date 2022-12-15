@@ -92,6 +92,7 @@
 
   color: #407946;
   @include media-query(mobile) {
+    text-align: right;
   }
   @include media-query(tablet) {
     text-align: right;
@@ -105,6 +106,7 @@
   font-weight: 700;
   color: #e7192e;
   @include media-query(mobile) {
+    text-align: right;
   }
   @include media-query(tablet) {
     text-align: right;
@@ -125,20 +127,45 @@
 }
 .tD_descr {
   @include media-query(mobile) {
+    font-weight: 700;
+    text-transform: none;
   }
   @include media-query(tablet) {
     min-width: 140px;
+    font-weight: 400;
   }
   @include media-query(desktop) {
     min-width: 150px;
   }
 }
 
-.tD_categ {
+.tD_categ,
+.tD_data {
   @include media-query(mobile) {
+    font-weight: 400;
+    font-size: 8px;
+    line-height: 1.13;
+    letter-spacing: 0.04em;
+
+    color: #52555f;
+  }
+  @include media-query(tablet) {
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.02em;
+
+    min-width: 116px;
+  }
+  @include media-query(desktop) {
+  }
+}
+.tD_data {
+  @include media-query(mobile) {
+    margin-right: 10px;
   }
   @include media-query(tablet) {
     min-width: 116px;
+    margin-right: 0px;
   }
   @include media-query(desktop) {
   }

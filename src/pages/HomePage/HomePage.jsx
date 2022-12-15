@@ -7,6 +7,7 @@ import Product from 'components/Product/Product';
 import Summary from 'components/Summary/Summary';
 import Modal from 'components/Modal/Modal';
 import Table from '../../components/Table/Table';
+import TableForMobile from '../../components/Table/TableForMobile';
 
 import useResizeScreen from 'shared/hooks/useResizeScreen';
 
@@ -36,6 +37,7 @@ const HomePage = () => {
             <Calendar />
           </div>
         </div>
+        <TableForMobile />
         <div className={s.btn}>
           <button
             className={s.button}
@@ -52,6 +54,7 @@ const HomePage = () => {
             Income
           </button>
         </div>
+
         {isOpenModal && (
           <Modal close={onClickToggleModal}>
             <Product />
