@@ -28,7 +28,7 @@ const HomePage = () => {
   if (isMobile) {
     return (
       <>
-        <Header />
+        {/* <Header /> */}
         <div className={s.background}>
           <div className="container">
             <div className={s.wrapper}>
@@ -70,7 +70,7 @@ const HomePage = () => {
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <div className={s.background}>
         <div className="container">
           <div className={s.wrapper}>
