@@ -23,12 +23,15 @@ const Accordion = () => {
       <button className={s.income} type="button" onClick={clickBtn}>
         Income
       </button>
-      {isShow && (
+      {isShow ? (
         <div className={s.wrapper}>
           <Calendar />
           <Product />
         </div>
-      )}
+      )
+      :
+      <div>qwerty</div>
+      }
     </div>
   );
 };
