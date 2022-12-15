@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import Balance from 'components/Balance/Balance';
 import Calendar from 'components/Calendar/Calendar';
@@ -29,7 +30,9 @@ const HomePage = () => {
         <div className={s.background}>
           <div className="container">
             <div className={s.wrapper}>
-              <p className={s.text}>Reports</p>
+              <Link to="/reports" className={s.text}>
+                Reports
+              </Link>
               <img className={s.chart} src={Chart} alt="Chart" />
             </div>
             <Balance />
@@ -67,7 +70,9 @@ const HomePage = () => {
       <div className={s.background}>
         <div className="container">
           <div className={s.wrapper}>
-            <p className={s.text}>Reports</p>
+            <Link to="/reports" className={s.text}>
+              Reports
+            </Link>
             <img className={s.chart} src={Chart} alt="Chart" />
           </div>
           <Balance />
