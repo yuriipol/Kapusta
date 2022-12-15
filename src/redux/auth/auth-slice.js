@@ -3,7 +3,6 @@ import { createSlice } from '@reduxjs/toolkit';
 import { logInUser, logoutUser } from './auth-operations';
 
 const initialState = {
-  email: '',
   token: '',
   isLogin: false,
   isLoading: false,
