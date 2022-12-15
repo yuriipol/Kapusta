@@ -1,16 +1,18 @@
+// import HomePage from 'pages/HomePage/HomePage';
+import ReportsPage from '../pages/ReportsPage/ReportsPage';
+// import AuthPage from '../pages/AuthPage/AuthPage';
+// import NotFoundPage from '../pages/NotFoundPage/NotFoundPage';
+import UserRoutes from './UserRouts/UserRoutes';
+import Header from './Header/Header';
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
+    <div>
+      {/* <HomePage /> */}
+      {/* <ReportsPage /> */}
+      {/* <AuthPage /> */}
+      {/* <NotFoundPage /> */}
+      <Header />
+      <UserRoutes />
     </div>
   );
 };

@@ -1,0 +1,105 @@
+@import '../../index.scss';
+
+
+.main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.logo {
+  height: 31px;
+  width: 90px;
+  margin: 2px 0 3px 6px;
+  @include media-query(tablet-only) {
+    margin: 3px 0 2px 22px;
+  }
+  @include media-query(mobile-only) {
+    margin: 3px 0 2px 10px;
+  }
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+  margin-right: 6px;
+  @include media-query(tablet-only) {
+    margin-right: 22px
+  }
+  @include media-query(mobile-only) {
+    margin: 2px 10px 2px 0;
+  }
+}
+
+.userAvatar{
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #F5F6FA;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  letter-spacing: 0.04em;
+  color: #52555F;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 12px;
+  @include media-query(tablet-only) {
+    margin-right: 16px;
+  }
+  @include media-query(mobile-only) {
+    margin-right: 16px;
+  }
+}
+
+.username {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: right;
+  letter-spacing: 0.04em;
+  color: #52555F;
+  margin-right: 20px;
+  @include media-query(mobile-only){
+    display: none;
+  }
+}
+
+.devideSvg{
+  width: 0px;
+  height: 34px;
+  border: 1px solid #E0E5EB;
+  margin-right: 20px;
+  @include media-query(mobile-only){
+    display: none;
+  }
+}
+
+.exit {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.04em;
+  text-decoration-line: underline;
+  @include media-query(mobile-only){
+    display: none;
+  }
+}
+
+.mobileExit {
+  display: none;
+  @include media-query(mobile-only){
+    display: inline;
+  }
+}

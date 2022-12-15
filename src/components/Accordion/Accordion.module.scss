@@ -1,0 +1,24 @@
+@import '../../index.scss';
+
+.expences {
+  width: 138px;
+  height: 40px;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  color: $color-primary;
+  background: #fefefe;
+  border-radius: 15px 15px 0px 0px;
+  &:hover,
+  &:focus {
+    color: $color-accent;
+  }
+}
+
+.income {
+  composes: expences;
+  background: #fafbfd;
+}
