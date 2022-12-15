@@ -1,0 +1,20 @@
+@import '../../index.scss';
+@import '../../shared/styles/index';
+
+
+.income_Wrapper {
+
+  @include media-query(tablet-only){
+    background-color: white;
+    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+    border-radius: 0px 30px 30px 30px;
+    margin-left: 32px;
+  }
+}
+
+
+.firstSection_Wrapper {
+  @include media-query(tablet-only){
+    display: flex;
+  }
+}

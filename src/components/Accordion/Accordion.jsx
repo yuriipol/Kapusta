@@ -6,7 +6,7 @@ import Income from '../Income/Income'
 import s from './Accordion.module.scss';
 
 const Accordion = () => {
-  const [isShow, setIsShow] = useState(true);
+  const [isShow, setIsShow] = useState('product');
 
   useEffect(() => {
     // запит за даними
@@ -15,7 +15,7 @@ const Accordion = () => {
   return (
     // {isShow && }
     <div>
-      <div>
+      <div className={s.buttons_wrapper}>
         <button className={s.expences} type="button" onClick={() => setIsShow(true)}>
           Expenses
         </button>
@@ -23,6 +23,7 @@ const Accordion = () => {
           Income
         </button>
       </div>
+
       {isShow ? (
         <div className={s.wrapper}>
           <Calendar />
@@ -30,7 +31,7 @@ const Accordion = () => {
         </div>
       )
       :
-      <div>qwerty</div>
+      <Income />
       }
     </div>
   );

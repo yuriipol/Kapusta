@@ -9,10 +9,10 @@
   margin-bottom: 40px;
   background-color: $bg-color-secondary;
   border-radius: 0px 0px 0px 100px;
-  @include media-query(tablet) {
-    display: flex;
-    align-items: center;
+  @include media-query(tablet-only){
   }
+  display: flex;
+  background-color: white;
 }
 
 .descriptionInput {
@@ -34,6 +34,8 @@
 
     color: #c7ccdc;
   }
+  @include media-query(tablet-only){
+  }
 }
 
 // .vector {
@@ -46,6 +48,8 @@
   align-items: center;
   justify-content: center;
   margin-top: 32px;
+  @include media-query(tablet-only){
+  }
 }
 
 .calculatorInput {
@@ -66,12 +70,16 @@
     text-transform: uppercase;
     color: #000000;
   }
+  @include media-query(tablet-only){
+  }
 }
 
 .select {
   width: 280px;
   height: 44px;
   margin: 0 auto;
+  @include media-query(tablet-only){
+  }
 }
 
 .image {
@@ -80,11 +88,15 @@
   border: 2px solid #ffffff;
   border-radius: 22px 0px 0px 22px;
   transform: matrix(-1, 0, 0, 1, 0, 0);
+  @include media-query(tablet-only){
+  }
 }
 
 .calculator {
   width: 20px;
   height: 20px;
+  @include media-query(tablet-only){
+  }
 }
 
 .btn {
@@ -107,6 +119,8 @@
     color: #ffffff;
     background: $color-accent;
   }
+  @include media-query(tablet-only){
+  }
 }
 
 .groupBtn {
@@ -115,4 +129,6 @@
   align-items: center;
   justify-content: center;
   gap: 20px;
+  @include media-query(tablet-only){
+  }
 }
