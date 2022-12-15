@@ -25,6 +25,7 @@ const HomePage = () => {
   if (isMobile) {
     return (
       <>
+        <Header />
         <div className={s.background}>
           <div className="container">
             <div className={s.wrapper}>
@@ -62,6 +63,7 @@ const HomePage = () => {
 
   return (
     <>
+      <Header />
       <div className={s.background}>
         <div className="container">
           <div className={s.wrapper}>
@@ -73,6 +75,7 @@ const HomePage = () => {
         <Accordion />
       </div>
       <Summary />
+      <div className={s.kapusta}></div>
     </>
   );
 };

@@ -9,7 +9,7 @@
 
 .wrapper {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   gap: 15px;
   margin-bottom: 40px;
@@ -18,7 +18,7 @@
     justify-content: flex-end;
     position: absolute;
     left: 652px;
-    top: 50px;
+    top: 45px;
     margin: 0;
     padding: 0;
   }
@@ -40,6 +40,8 @@
 .btn {
   margin-top: 40px;
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 4px;
 }
 
@@ -61,5 +63,22 @@
   &:focus {
     color: #ffffff;
     background-color: $color-accent;
+  }
+}
+
+.kapusta {
+  @include media-query(tablet-only) {
+    height: 378px;
+    background-image: url(../../shared/images/auth/2kapustas_md.svg);
+    background-size: 183px 146px;
+    background-repeat: no-repeat;
+    background-position: bottom 59px right 88px;
+  }
+  @include media-query(desktop) {
+    height: 194px;
+    background-image: url(../../shared/images/auth/kapusta_lg.svg);
+    background-size: 100% 232px;
+    background-repeat: no-repeat;
+    background-position: top 656px left 10;
   }
 }
