@@ -21,3 +21,38 @@
     margin: 4px 0 32px 0;
   }
 }
+
+.btn {
+  @include media-query(tablet-only){
+    width: 136px;
+    height: 44px;
+  
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  
+    color: $color-secondary;
+    background: #ffffff;
+    border: 2px solid #f6f7fc;
+    border-radius: 16px;
+  
+    &:hover,
+    &:focus {
+      color: #ffffff;
+      background: $color-accent;
+    }
+  }
+}
+
+.secondSection_Wrapper {
+  @include media-query(tablet-only){
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 48px;
+  }
+}

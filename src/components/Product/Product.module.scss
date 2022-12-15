@@ -164,11 +164,10 @@
     width: 20px;
     height: 20px;
   }
+  height: 20px;
 }
 
 .btn {
-  @include media-query(tablet-only){
-  }
   @include media-query(mobile-only){
     width: 136px;
     height: 44px;
@@ -193,8 +192,6 @@
 }
 
 .groupBtn {
-  @include media-query(tablet-only){
-  }
   @include media-query(mobile-only){
     display: flex;
     flex-direction: row;

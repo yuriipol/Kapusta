@@ -24,12 +24,8 @@ const Accordion = () => {
         </button>
       </div>
 
-      {isShow ? (
-        <div className={s.wrapper}>
-          <Calendar />
-          <Product />
-        </div>
-      )
+      {isShow ? 
+      <Income />
       :
       <Income />
       }
