@@ -14,7 +14,7 @@ const Accordion = () => {
 
   return (
     // {isShow && }
-    <div>
+    <div className={s.express_income_wrapper}>
       <div className={s.buttons_wrapper}>
         <button className={s.expences} type="button" onClick={() => setIsShow(true)}>
           Expenses

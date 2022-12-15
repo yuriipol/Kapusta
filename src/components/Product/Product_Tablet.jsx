@@ -13,28 +13,22 @@ const Product_Table = () => {
           type="text"
           placeholder="Product description"
         />
-        <div className={s.select}>
-          <CreatableSelect
-            className={'product-select'}
-            classNamePrefix={'custom'}
-            placeholder="Product category"
-            options={options}
-          />
-        </div>
+        <CreatableSelect
+          className={s.checkBoxList}
+          classNamePrefix={'custom'}
+          placeholder="Product category"
+          options={options}
+        />
         <div className={s.wrapper}>
           <input
             className={s.calculatorInput}
             type="number"
-            placeholder="00.00 UAH"
+            placeholder="00.0"
           />
           <div className={s.image}>
             <img className={s.calculator} src={Calculator} alt="Calculator" />
           </div>
         </div>
-      </div>
-      <div className={s.groupBtn}>
-        <button className={s.btn}>Input</button>
-        <button className={s.btn}>Clear</button>
       </div>
     </>
   );

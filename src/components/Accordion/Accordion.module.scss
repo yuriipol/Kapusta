@@ -38,6 +38,11 @@
 
 .buttons_wrapper {
   @include media-query(tablet-only){
-    margin-left: 32px;
+    // margin-left: 32px;
   }
+}
+
+.express_income_wrapper{
+  width: 704px;
+  margin: 0 auto;
 }
