@@ -26,13 +26,12 @@ const data = [
     id: '3',
   },
 ];
-const difClass = suma => {
-  const result = suma >= 0 ? 's.incom' : 's.outcom';
-  return result;
-};
+// const difClass = suma => {
+//   const result = suma >= 0 ? 's.incom' : 's.outcom';
+//   return result;
+// };
 
 const Table = () => {
-  console.log(difClass(1000));
   const rows = data.map(({ data, description, category, sum, id }) => {
     const suma = Number.parseFloat(sum);
 

@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { logInUser, logoutUser } from './auth-operations';
+import { logInUser, logoutUser, registerUser } from './auth-operations';
 
 const initialState = {
   token: '',
@@ -12,46 +12,54 @@ const initialState = {
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
-  reducers:
-    // extraReducers:
-    {
-      [logInUser.pending]: state => {
-        state.isLoading = true;
-        state.error = null;
-      },
-      [logInUser.fulfilled]: (state, { payload }) => {
-        //   state.accessToken = payload.accessToken;
-        //   state.refreshToken = payload.refreshToken;
-        //   state.sid = payload.sid;
-        //   state.user = { ...state.user, ...payload.user };
-        //   state.userId = payload.user.id;
-        //   state.isLoading = false;
-        //   state.isLogin = true;
-      },
-      [logInUser.rejected]: (state, { payload }) => {
-        state.isLogin = false;
-        state.isLoading = false;
-        state.error = payload;
-      },
-      [logoutUser.pending]: state => {
-        state.isLoading = true;
-        state.error = null;
-      },
-      [logoutUser.fulfilled]: (state, { payload }) => {
-        //   state.accessToken = '';
-        //   state.refreshToken = '';
-        //   state.sid = '';
-        //   state.user = initialState.user;
-        //   state.userId = '';
-        //   state.isLoading = false;
-        //   state.isLogin = false;
-      },
-      [logoutUser.rejected]: (state, { payload }) => {
-        state.isLogin = false;
-        state.isLoading = false;
-        state.error = payload;
-      },
+  reducers: {},
+  extraReducers: {
+    [registerUser.pending]: state => {
+      state.token = '';
+      state.isLoading = true;
+      state.error = null;
     },
+    [registerUser.fulfilled]: state => {
+      state.token = 'no token';
+      state.isLoading = false;
+      state.isLogin = false;
+    },
+    [registerUser.rejected]: (state, { payload }) => {
+      state.token = 'error token';
+      state.isLogin = false;
+      state.isLoading = false;
+      state.error = payload;
+    },
+    [logInUser.pending]: state => {
+      state.token = '';
+      state.isLoading = true;
+      state.error = null;
+    },
+    [logInUser.fulfilled]: (state, { payload }) => {
+      state.token = payload.accessToken;
+      state.isLoading = false;
+      state.isLogin = true;
+    },
+    [logInUser.rejected]: (state, { payload }) => {
+      state.isLogin = false;
+      state.isLoading = false;
+      state.error = payload;
+    },
+    [logoutUser.pending]: state => {
+      state.isLoading = true;
+      state.error = null;
+    },
+    [logoutUser.fulfilled]: (state, { payload }) => {
+      state.token = '';
+      state.isLoading = false;
+      state.isLogin = false;
+    },
+    [logoutUser.rejected]: (state, { payload }) => {
+      state.isLogin = false;
+      state.isLoading = false;
+      state.error = payload;
+    },
+  },
 });
 
 // export default authSlice.reducer;
