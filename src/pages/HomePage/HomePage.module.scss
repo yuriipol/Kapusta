@@ -8,6 +8,9 @@
   @include media-query(tablet-only){
     height: 526px;
   }
+  @include media-query(desktop){
+    height: 526px;
+  }
 }
 
 .wrapper {
@@ -102,4 +105,9 @@
     align-items: center;
     justify-content: flex-end;
   }
+}
+
+
+.test{
+  display: none;
 }
