@@ -10,6 +10,8 @@ const Income = () => {
       <div className={s.firstSection_Wrapper}>
         <Calendar />
         <Product_Tablet />
+        <button className={s.btn_Desktop}>Input</button>
+        <button className={s.btn_Desktop}>Clear</button>
       </div>
       <div className={s.secondSection_Wrapper}>
         <button className={s.btn}>Input</button>

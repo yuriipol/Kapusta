@@ -1,7 +1,7 @@
 @import '../../index.scss';
 @import '../../shared/styles/index';
 
-.expences {
+.expenses {
   width: 138px;
   height: 40px;
   font-weight: 700;
@@ -22,7 +22,7 @@
 }
 
 .income {
-  composes: expences;
+  composes: expenses;
   background: #fafbfd;
 }
 
@@ -30,7 +30,6 @@
   width: 704px;
   height: 616px;
   background: #ffffff;
-  /* shadow 1 */
 
   box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
   border-radius: 0px 30px 30px 30px;
@@ -42,7 +41,13 @@
   }
 }
 
-.express_income_wrapper{
-  width: 704px;
-  margin: 0 auto;
+.expenses_income_wrapper{
+  @include media-query(tablet-only){
+    width: 704px;
+    margin: 0 auto;
+  }
+  @include media-query(desktop){
+    width: 1098px;
+    margin: 8px auto 0;
+  }
 }

@@ -16,6 +16,10 @@
     display: flex;
     align-items: center;
   }
+  @include media-query(desktop){
+    display: flex;
+    align-items: center;
+  }
 }
 
 .calendar {
@@ -51,5 +55,22 @@
     height: 40px;
     color: #52555F;
     margin-left: 9px;
+  }
+  @include media-query(desktop){
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 12px;
+    line-height: 14px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+
+    color: #52555F;
+    border: none;
+    width: 73px;
+    height: 40px;
+    margin-right: 32px;
   }
 }
