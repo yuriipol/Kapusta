@@ -5,6 +5,9 @@
   padding: 40px 0px;
   background-color: $bg-color-secondary;
   border-radius: 0px 0px 0px 100px;
+  @include media-query(tablet-only){
+    height: 526px;
+  }
 }
 
 .wrapper {
