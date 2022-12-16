@@ -1,1 +1,1 @@
-export const getToken = store => store.auth;
+export const getToken = ({ auth }) => auth.token;
