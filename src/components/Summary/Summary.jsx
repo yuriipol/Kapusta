@@ -1,40 +1,58 @@
 import s from './Summary.module.scss';
 
+const data = [
+  {
+    month: 'December',
+    sum: '10000.00',
+    id: '1',
+  },
+  {
+    month: 'November',
+    sum: '30000.00',
+    id: '2',
+  },
+  {
+    month: 'October',
+    sum: '30000.00',
+    id: '3',
+  },
+  {
+    month: 'September',
+    sum: '20000.00',
+    id: '4',
+  },
+  {
+    month: 'Augest',
+    sum: '15000.00',
+    id: '5',
+  },
+  {
+    month: 'July',
+    sum: '18000.00',
+    id: '6',
+  },
+];
+
 const Summary = () => {
+  const rows = data.map(({ month, sum, id }) => {
+    return (
+      <tr key={id}>
+        <td>{month}</td>
+        <td>{sum}</td>
+      </tr>
+    );
+  });
+
   return (
-    <div className={s.wrapper}>
-      <table>
-        <tbody>
-          <tr>
-            <th>Summary</th>
-          </tr>
-          <tr>
-            <td>December</td>
-            <td>10 000.00</td>
-          </tr>
-          <tr>
-            <td>November</td>
-            <td>30 000.00</td>
-          </tr>
-          <tr>
-            <td>October</td>
-            <td>30 000.00</td>
-          </tr>
-          <tr>
-            <td>September</td>
-            <td>20 000.00</td>
-          </tr>
-          <tr>
-            <td>Augest</td>
-            <td>15 000.00</td>
-          </tr>
-          <tr>
-            <td>July</td>
-            <td>18 000.00</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <table className={s.table}>
+      <thead>
+        <tr>
+          <th>Summary</th>
+        </tr>
+      </thead>
+
+      <tbody>{rows}</tbody>
+    </table>
   );
 };
 

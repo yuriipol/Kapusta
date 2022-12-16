@@ -5,9 +5,11 @@
     display: flex;
     align-items: center;
     flex-direction: row;
+  }
 
-    padding-top: 40px;
-    margin-bottom: 60px;
+  @include media-query(desktop) {
+    margin-bottom: 8px;
+    justify-content: center;
   }
 }
 
@@ -21,7 +23,6 @@
   @include media-query(tablet) {
     margin-bottom: 0px;
     margin-right: 21px;
-    // text-align: right;
   }
 }
 
