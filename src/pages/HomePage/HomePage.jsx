@@ -69,14 +69,14 @@ const HomePage = () => {
   return (
     <>
       <div className={s.background}>
-        <div className="container">
+        <div className={s.HomeContainer}>
+          <Balance />
           <div className={s.wrapper}>
             <Link to="/reports" className={s.text}>
               Reports
             </Link>
             <img className={s.chart} src={Chart} alt="Chart" />
           </div>
-          <Balance />
         </div>
         <Accordion />
       </div>

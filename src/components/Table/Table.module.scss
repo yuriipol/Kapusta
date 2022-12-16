@@ -2,7 +2,9 @@
 .wrapper {
   margin-bottom: 60px;
 
-  @include media-query(mobile) {
+  @include media-query(mobile-only) {
+    width: 320px;
+    margin: 0 auto;
   }
   @include media-query(tablet) {
     width: 624px;

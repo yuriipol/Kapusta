@@ -37,7 +37,6 @@ tr {
 }
 
 td {
-  padding-left: 22px;
   padding-right: 22px;
 
   @include media-query(desktop) {

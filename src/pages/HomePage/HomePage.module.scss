@@ -5,6 +5,9 @@
   padding: 40px 0px;
   background-color: $bg-color-secondary;
   border-radius: 0px 0px 0px 100px;
+  @include media-query(tablet-only){
+    height: 526px;
+  }
 }
 
 .wrapper {
@@ -12,15 +15,12 @@
   align-items: flex-end;
   justify-content: center;
   gap: 15px;
-  margin-bottom: 40px;
+  
 
+  @include media-query(mobile-only) {
+    margin-bottom: 40px;
+  }
   @include media-query(tablet) {
-    justify-content: flex-end;
-    position: absolute;
-    left: 652px;
-    top: 45px;
-    margin: 0;
-    padding: 0;
   }
   @include media-query(desktop) {
     right: 91px;
@@ -84,5 +84,15 @@
     background-size: 100% 232px;
     background-repeat: no-repeat;
     background-position: top 656px left 10;
+  }
+}
+
+.HomeContainer {
+  @include media-query(tablet-only){
+    width: 704px;
+    margin: 40px auto 60px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 }
