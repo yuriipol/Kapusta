@@ -27,12 +27,12 @@ const AuthForm = ({ onSubmit }) => {
 
   function onRegistration(event) {
     // event.preventDefault();
-    console.log(event.target.innerText);
+    // console.log(event.target.innerText);
     // console.log(email);
     // console.log(password);
 
     const data = { email, password };
-    console.log(data);
+    // console.log(data);
     dispatch(registerUser(data));
     // registration(data);
 
