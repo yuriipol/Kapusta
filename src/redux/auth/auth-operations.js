@@ -7,12 +7,10 @@ import {
   registration,
   userInfo,
 } from '../../shared/api/auth-api';
-// import { userInfoOperation } from 'redux/user/user-operations';
 
 const userInfoOperation = createAsyncThunk(
   'user/get',
   async (data, { rejectWithValue }) => {
-    // console.log('user/get');
     try {
       const result = await userInfo(data);
       return result;
@@ -27,14 +25,14 @@ export const registerUser = createAsyncThunk(
   async (data, { rejectWithValue }) => {
     try {
       const result = await registration(data);
-      console.log('registerUser-result1', result);
+
       Notiflix.Report.success(
         `${result.email} registration was successful`,
         'You need to login',
         'Okay'
       );
 
-      console.log('auth/register-result2', result);
+      // console.log('auth/register-result2', result);
       return result;
     } catch (error) {
       console.log('error');
@@ -61,10 +59,9 @@ export const logInUser = createAsyncThunk(
     try {
       const result = await login(data);
       // console.log(result);
-      Notiflix.Notify.success(`Welcome ${result.userData.email}`);
-      // Notiflix.Notify.success(`Welcome ${result.email}`);
+      Notiflix.Notify.success(`Welcome ${result.user.email}`);
 
-      dispatch(userInfoOperation(result.accessToken));
+      // dispatch(userInfoOperation(result.token));
       return result;
     } catch (error) {
       const statusErr = error.response.status;

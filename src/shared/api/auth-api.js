@@ -1,24 +1,27 @@
 import axios from 'axios';
 
 export const instance = axios.create({
-  baseURL: 'https://kapusta-backend.goit.global',
+  baseURL: 'http://localhost:4040/',
 });
 
-export const setToken = (accessToken = '') => {
-  instance.defaults.headers.Authorization = `Bearer ${accessToken}`;
+export const setToken = async (token = '') => {
+  console.log('token-setToken', token);
+  instance.defaults.headers.Authorization = `Bearer ${token}`;
+  //   instance.defaults.headers.common.authorization = `Bearer ${token}`;
+  //   instance.defaults.headers.common['Authorization'] = token;
 };
 
 export const registration = async data => {
-  //   console.log('api-registration-data', data);
-  //   setToken('');
-  const { data: result } = await instance.post('/auth/register', data);
-
+  const { data: result } = await instance.post('api/auth/users/register', data);
   return result;
 };
 
 export const login = async data => {
-  const { data: result } = await instance.post('/auth/login', data);
-  setToken(result.accessToken);
+  const { data: result } = await instance.post('api/auth/users/login', data);
+  //   console.log('login-data', data);
+  console.log('login-result', result);
+  setToken(result.token);
+  // instance.defaults.headers.common['Authorization'] = `Bearer ${result.token}`;
 
   return result;
 };
@@ -30,11 +33,9 @@ export const logout = async () => {
 };
 
 export const userInfo = async data => {
-  //   console.log('userInfo-data:', data);
+  console.log('userInfo-data:', data);
   setToken(data);
-
-  const { data: result } = await instance.get('/user');
-  //   console.log('userInfo-result:', result);
+  const { data: result } = await instance.get('/users');
 
   return result;
 };
