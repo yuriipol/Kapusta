@@ -1,14 +1,19 @@
 @import '../../index.scss';
 
 .table {
-  border-collapse: collapse;
-  width: 100%;
-
-  margin-top: 40px;
-  margin-bottom: 60px;
-  width: 230px;
-  background: #f5f6fb;
-  border-radius: 10px 10px 10px 0px;
+  @include media-query(tablet-only){
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 60px;
+    width: 230px;
+    background: #f5f6fb;
+    border-radius: 10px 10px 10px 0px;
+  }
+  @include media-query(desktop){
+    width: 213px;
+    margin-left: 75px;
+  }
 }
 
 th {

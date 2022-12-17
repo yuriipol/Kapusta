@@ -80,9 +80,6 @@ const HomePage = () => {
         </div>
         <Accordion />
       </div>
-      <Summary />
-
-      <Table />
       <div className={s.kapusta}></div>
     </>
   );

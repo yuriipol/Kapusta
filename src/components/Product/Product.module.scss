@@ -21,9 +21,34 @@
     background-color: $bg-color-secondary;
     border-radius: 0px 0px 0px 100px;
   }
+  @include media-query (desktop){
+    display: flex;
+    align-items: center;
+    background-color: white;
+    width: 578px;
+    height: 44px;
+    border: 2px solid #F6F7FC;
+    border-radius: 16px 16px 16px 0px;
+    margin-right: 16px;
+  }
 }
 
 .descriptionInput {
+  @include media-query(desktop){
+    border: none;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.02em;
+
+    color: #C7CCDC;
+    width: 238.51px;
+    height: 40px;
+  }
   @include media-query(tablet-only){
     border: none;
     width: 159.32px;
@@ -66,6 +91,10 @@
 // }
 
 .wrapper {
+  @include media-query(desktop){
+    display: flex;
+    align-items: center;
+  }
   @include media-query(tablet-only){
     display: flex;
     align-items: center;
@@ -81,6 +110,22 @@
 }
 
 .calculatorInput {
+  @include media-query(desktop){
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.02em;
+
+    color: #C7CCDC;
+    width: 119.25px;
+    height: 40px;
+    border: none;
+  }
   @include media-query(mobile-only){
     height: 44px;
     padding: 0;
