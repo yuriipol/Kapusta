@@ -22,7 +22,7 @@ const Header = () => {
           Exit
         </li>
         <li className={style.mobileExit}>
-          <img src={logout} alt="logout"></img>
+          <img onClick={onClickToggleModal} src={logout} alt="logout"></img>
         </li>
       </ul>
       {isOpenModal && <ModalExit close={onClickToggleModal} />}
