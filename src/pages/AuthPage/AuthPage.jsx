@@ -1,8 +1,15 @@
-import AuthForm from '../../components/AuthForm/AuthForm';
+import { useDispatch } from 'react-redux';
 
+import AuthForm from '../../components/AuthForm/AuthForm';
+import { logInUser } from '../../redux/auth/auth-operations';
 import s from './AuthPage.module.scss';
 
 const AuthPage = () => {
+  const dispatch = useDispatch();
+
+  const onSubmit = data => {
+    dispatch(logInUser(data));
+  };
   return (
     <>
       <div className={s.section}>
@@ -17,7 +24,7 @@ const AuthPage = () => {
         </div>
         <div className={s.helper}></div>
 
-        <AuthForm />
+        <AuthForm onSubmit={onSubmit} />
         {/* </div> */}
       </div>
     </>

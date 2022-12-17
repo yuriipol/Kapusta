@@ -1,23 +1,46 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import GoogleLogo from '../../shared/images/auth/google-symbol_lg.svg';
+import { registerUser } from '../../redux/auth/auth-operations';
+// import { registration } from '../../shared/api/auth-api';
 import s from './AuthForm.module.scss';
 
 const AuthForm = ({ onSubmit }) => {
+  // console.log('registerUser', registerUser);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   function handleSubmit(event) {
     event.preventDefault();
 
+    const data = { email, password };
+
+    onSubmit(data);
+    setEmail('');
+    setPassword('');
+  }
+
+  function onRegistration(event) {
+    // event.preventDefault();
+    console.log(event.target.innerText);
+    // console.log(email);
+    // console.log(password);
+
+    const data = { email, password };
+    console.log(data);
+    dispatch(registerUser(data));
+    // registration(data);
+
     // const data = { email, password };
 
     // onSubmit(data);
-    setEmail('');
-    setPassword('');
+    // setEmail('');
+    // setPassword('');
   }
 
   function handleChange(event) {
@@ -90,14 +113,11 @@ const AuthForm = ({ onSubmit }) => {
             type="submit"
             className={s.btn}
             onClick={() => navigate('/home')}
+            // onClick={handleSubmit}
           >
             log in
           </button>
-          <button
-            type="button"
-            className={s.btn}
-            onClick={() => navigate('/home')}
-          >
+          <button type="button" className={s.btn} onClick={onRegistration}>
             Registration
           </button>
         </div>
