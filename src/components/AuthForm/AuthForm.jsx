@@ -5,11 +5,12 @@ import { useDispatch } from 'react-redux';
 
 import GoogleLogo from '../../shared/images/auth/google-symbol_lg.svg';
 import { registerUser } from '../../redux/auth/auth-operations';
-// import { registration } from '../../shared/api/auth-api';
+import { googleLogin } from '../../shared/api/auth-api';
 import s from './AuthForm.module.scss';
 
+// const BASE_URL = 'http://localhost:4040';
+
 const AuthForm = ({ onSubmit }) => {
-  // console.log('registerUser', registerUser);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -27,20 +28,8 @@ const AuthForm = ({ onSubmit }) => {
 
   function onRegistration(event) {
     // event.preventDefault();
-    // console.log(event.target.innerText);
-    // console.log(email);
-    // console.log(password);
-
     const data = { email, password };
-    // console.log(data);
     dispatch(registerUser(data));
-    // registration(data);
-
-    // const data = { email, password };
-
-    // onSubmit(data);
-    // setEmail('');
-    // setPassword('');
   }
 
   function handleChange(event) {
@@ -57,14 +46,23 @@ const AuthForm = ({ onSubmit }) => {
     }
   }
 
+  function onGoogleRetistrationClick() {
+    googleLogin();
+    navigate('/home');
+  }
+
   return (
     <>
       <form className={s.form} onSubmit={handleSubmit}>
         <p className={s.textUp}> You can log in with your Google Account:</p>
-        <a className={s.link} href="./">
+        <button
+          type="button"
+          className={s.link}
+          onClick={onGoogleRetistrationClick}
+        >
           <img className={s.googleIcon} src={GoogleLogo} alt="Google Logo" />
           Google
-        </a>
+        </button>
         <p className={s.textDown}>
           Or log in using an email and password, after registering:
         </p>

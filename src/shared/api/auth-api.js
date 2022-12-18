@@ -18,11 +18,7 @@ export const registration = async data => {
 
 export const login = async data => {
   const { data: result } = await instance.post('api/auth/users/login', data);
-  //   console.log('login-data', data);
-  console.log('login-result', result);
   setToken(result.token);
-  // instance.defaults.headers.common['Authorization'] = `Bearer ${result.token}`;
-
   return result;
 };
 
@@ -33,9 +29,17 @@ export const logout = async () => {
 };
 
 export const userInfo = async data => {
-  console.log('userInfo-data:', data);
   setToken(data);
   const { data: result } = await instance.get('/users');
 
+  return result;
+};
+
+export const googleLogin = async () => {
+  console.log('googleLogin');
+
+  const result = await instance.get('api/auth/users/google');
+  console.log('result-googleLogin', result);
+  //   setToken(result.token);
   return result;
 };

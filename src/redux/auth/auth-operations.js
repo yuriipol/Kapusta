@@ -5,34 +5,33 @@ import {
   login,
   logout,
   registration,
-  userInfo,
+  // userInfo,
 } from '../../shared/api/auth-api';
 
-const userInfoOperation = createAsyncThunk(
-  'user/get',
-  async (data, { rejectWithValue }) => {
-    try {
-      const result = await userInfo(data);
-      return result;
-    } catch (error) {
-      return rejectWithValue(error.message);
-    }
-  }
-);
+// const userInfoOperation = createAsyncThunk(
+//   'user/get',
+//   async (data, { rejectWithValue }) => {
+//     try {
+//       const result = await userInfo(data);
+//       return result;
+//     } catch (error) {
+//       return rejectWithValue(error.message);
+//     }
+//   }
+// );
 
 export const registerUser = createAsyncThunk(
   'auth/register',
   async (data, { rejectWithValue }) => {
     try {
       const result = await registration(data);
-
+      const [name] = result.email.split('@');
       Notiflix.Report.success(
-        `${result.email} registration was successful`,
+        `${name} registration was successful`,
         'You need to login',
         'Okay'
       );
 
-      // console.log('auth/register-result2', result);
       return result;
     } catch (error) {
       console.log('error');
@@ -58,10 +57,9 @@ export const logInUser = createAsyncThunk(
   async (data, { rejectWithValue, dispatch }) => {
     try {
       const result = await login(data);
-      // console.log(result);
-      Notiflix.Notify.success(`Welcome ${result.user.email}`);
+      const [name] = result.user.email.split('@');
+      Notiflix.Notify.success(`Welcome ${name}`);
 
-      // dispatch(userInfoOperation(result.token));
       return result;
     } catch (error) {
       const statusErr = error.response.status;
