@@ -1,23 +1,26 @@
 import { useState } from 'react';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { updateUsersBalance } from 'redux/user/user-operations';
 
 import s from './Balance.module.scss';
+
 const Balance = () => {
   const [state, setState] = useState({
     balance: '',
   });
   const { balance } = state;
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const handleChange = event => {
     const { name, value } = event.currentTarget;
     setState({ ...state, [name]: value });
-    // console.log(value);
+    console.log(value);
   };
 
   const handleSubmit = event => {
     event.preventDefault();
-    // dispatch();
+    console.log(state);
+    dispatch(updateUsersBalance(state));
     reset();
   };
 

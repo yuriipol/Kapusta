@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { userInfoOperation } from './user-operations';
+import { userInfoOperation, updateUsersBalance } from './user-operations';
 
 const initialState = {
   balance: null,
@@ -24,7 +24,6 @@ export const userSlice = createSlice({
   extraReducers: {
     [userInfoOperation.pending]: state => {
       state.isLoading = true;
-
       state.error = null;
     },
     [userInfoOperation.fulfilled]: (state, { payload }) => {
@@ -34,6 +33,18 @@ export const userSlice = createSlice({
       state.isLoading = false;
     },
     [userInfoOperation.rejected]: (state, { payload }) => {
+      state.isLoading = false;
+      state.error = payload;
+    },
+    [updateUsersBalance.pending]: state => {
+      state.isLoading = true;
+      state.error = null;
+    },
+    [updateUsersBalance.fulfilled]: (state, { payload }) => {
+      state.balance = payload;
+      state.isLoading = false;
+    },
+    [updateUsersBalance.rejected]: (state, { payload }) => {
       state.isLoading = false;
       state.error = payload;
     },
