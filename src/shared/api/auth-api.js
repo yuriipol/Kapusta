@@ -23,7 +23,7 @@ export const login = async data => {
 };
 
 export const logout = async () => {
-  const { data: result } = await instance.post('/auth/logout');
+  const { data: result } = await instance.get('api/auth/users/logout');
   setToken('');
   return result;
 };
