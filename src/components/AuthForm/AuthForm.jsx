@@ -1,18 +1,46 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+// import { GoogleLogin } from 'react-google-login';
+// import { gapi, loadAuth2 } from 'gapi-script';
+import GoogleButton from 'react-google-button';
 
-import GoogleLogo from '../../shared/images/auth/google-symbol_lg.svg';
+import { userInfo } from '../../shared/api/auth-api';
+// import GoogleLogo from '../../shared/images/auth/google-symbol_lg.svg';
 import { registerUser } from '../../redux/auth/auth-operations';
-import { googleLogin } from '../../shared/api/auth-api';
+// import { googleLogin, googleGetData } from '../../shared/api/auth-api';
 import s from './AuthForm.module.scss';
 
 // const BASE_URL = 'http://localhost:4040';
+const GOOGLE_CLIENT_ID =
+  '317994541483-4vvq63m12csjfr2hter6k9g0aq7vcaog.apps.googleusercontent.com';
+// const scopes = 'http://localhost:4040/api/auth/users/google';
 
 const AuthForm = ({ onSubmit }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  // const [profile, setProfile] = useState([]);
+  function handleGoogle(res) {
+    console.log('res.credential', res.credential);
+  }
+  // useEffect(() => {
+  //   window.google.accounts.id.initialize({
+  //     client_id: GOOGLE_CLIENT_ID,
+  //     callback: handleGoogle,
+  //   });
+  //   window.google.accounts.id.renderButton(
+  //     document.getElementById('signUpDiv'),
+  //     {
+  //       type: 'standard',
+  //       theme: 'filled_black',
+  //       size: 'small',
+  //       text: 'signin',
+  //       shape: 'pill',
+  //     }
+  //   );
+  // }, []);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -46,27 +74,93 @@ const AuthForm = ({ onSubmit }) => {
     }
   }
 
-  function onGoogleRetistrationClick() {
-    googleLogin();
-    navigate('/home');
+  async function onGoogleRetistrationClick(event) {
+    // event.preventDefault();
+    // googleLogin();
+    // googleGetData();
+    // console.log('resuln-onGoogleRetistrationClick', resuln);
+    // navigate('/home');
   }
+
+  // const onSuccess = res => {
+  //   setProfile(res.profileObj);
+  //   console.log(profile);
+  // };
+  // const onFailure = err => {
+  //   console.log('failed:', err);
+  // };
+
+  const redirectOnGoogle = async () => {
+    // let timer = null;
+    const googleLoginURL = 'http://localhost:4040/api/auth/users/google';
+
+    const newWindow = window.open(
+      googleLoginURL,
+      '_blank',
+      'width=500,height=600'
+    );
+
+    if (newWindow) {
+      setTimeout(() => {
+        userInfo();
+        newWindow.close();
+      }, 1000);
+    }
+  };
 
   return (
     <>
       <form className={s.form} onSubmit={handleSubmit}>
         <p className={s.textUp}> You can log in with your Google Account:</p>
-        <button
-          type="button"
+
+        <GoogleButton
+          onClick={redirectOnGoogle}
+          style={{
+            // borderRadius: 14,
+            backgroundColor: 'red',
+            color: 'white',
+          }}
+        />
+        {/* <a
+          // id="signUpDiv"
+          href="http://localhost:4040/api/auth/users/google/callback"
+          // rel="noopener noreferrer"
+          // target="_blank"
           className={s.link}
           onClick={onGoogleRetistrationClick}
         >
           <img className={s.googleIcon} src={GoogleLogo} alt="Google Logo" />
           Google
-        </button>
+        </a> */}
+        {/* <GoogleLogin
+          clientId={GOOGLE_CLIENT_ID}
+          render={renderProps => (
+            <button
+              type="button"
+              className={s.link}
+              onClick={() => {
+                renderProps.onClick();
+                // googleLogin();
+              }}
+              disabled={renderProps.disabled}
+            >
+              <img
+                className={s.googleIcon}
+                src={GoogleLogo}
+                alt="Google Logo"
+              />
+              Google
+            </button>
+          )}
+          buttonText="Google"
+          onSuccess={onSuccess}
+          onFailure={onFailure}
+          cookiePolicy={'single_host_origin'}
+        /> */}
+
         <p className={s.textDown}>
           Or log in using an email and password, after registering:
         </p>
-
         <div className={s.formItem}>
           <input
             className={s.formInput}
@@ -105,7 +199,6 @@ const AuthForm = ({ onSubmit }) => {
           </label>
           <div className={s.formText}>This is a required field</div>
         </div>
-
         <div className={s.btnGroup}>
           <button
             type="submit"

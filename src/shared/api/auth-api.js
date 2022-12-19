@@ -30,16 +30,26 @@ export const logout = async () => {
 
 export const userInfo = async data => {
   setToken(data);
-  const { data: result } = await instance.get('/users');
-
+  const { data: result } = await instance.get('api/auth/users', {
+    withCredentials: true,
+  });
+  console.log('result-userInfo', result);
   return result;
 };
 
 export const googleLogin = async () => {
   console.log('googleLogin');
 
-  const result = await instance.get('api/auth/users/google');
-  console.log('result-googleLogin', result);
+  await instance.get('api/auth/users/google');
+  //   console.log('result-googleLogin', result);
+  //   setToken(result.token);
+  //   return;
+};
+export const googleGetData = async () => {
+  console.log('googleGetData');
+
+  const result = await instance.get('api/auth/users/google/callback');
+  console.log('result-googleGetData', result);
   //   setToken(result.token);
   return result;
 };
