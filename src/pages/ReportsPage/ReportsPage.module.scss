@@ -1,44 +1,132 @@
 @import '../../shared/styles/';
 
 .reportsContainer {
-  padding-left: 123px;
-  padding-right: 123px;
+  padding: 40px 20px 80px;
+  @include media-query(tablet) {
+    padding: 40px 32px 80px;
+  }
+
+  @include media-query(desktop) {
+    padding: 40px 123px 80px;
+    padding-left: 123px;
+    padding-right: 123px;
+    padding-bottom: 80px;
+  }
 }
 .reportsNav {
   display: flex;
-  justify-content: space-between;
   margin-bottom: 32px;
+
+  @include media-query(mobile-only) {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  justify-content: space-between;
 }
 
 .buttonBack {
   display: flex;
   align-items: center;
 
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.04em;
   background-color: transparent;
+  color: rgba(82, 85, 95, 0.7);
+  @include media-query(mobile-only) {
+    align-self: start;
+  }
+
+  &:hover .buttonBackArrow,
+  &:focus .buttonBackArrow {
+    scale: 1.2;
+    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+  }
 }
 .buttonBackArrow {
   margin-right: 16px;
   fill: $color-accent;
   width: 24px;
   height: 24px;
+
+  transition: all $transition;
 }
-.currentPeriod_month {
-  display: flex;
-}
+
 .buttonPeriod {
   display: flex;
-
   align-items: center;
+  padding-left: 8px;
+  padding-right: 16px;
+  &:last-child {
+    padding-left: 16px;
+    padding-right: 8px;
+  }
 
   background-color: transparent;
+
+  &:hover .buttonPeriod_svg,
+  &focus .buttonPeriod_svg {
+    scale: 2;
+  }
 }
 .buttonPeriod_svg {
   width: 4px;
   height: 10px;
   stroke: $color-accent;
   fill: transparent;
+
+  transition: all $transition;
+}
+
+.balance_wrapper {
+  @include media-query(mobile-only) {
+    text-align: center;
+  }
+  @include media-query(tablet) {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.balance_text {
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.02em;
+
+  color: rgba(82, 85, 95, 0.7);
+  @include media-query(mobile-only) {
+    margin-bottom: 8px;
+  }
+
+  @include media-query(tablet) {
+    margin-right: 20px;
+  }
+}
+
+.balance_amount {
+  padding: 12px 20px;
+
+  font-family: 'Roboto';
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.02em;
+
+  border-radius: 16px;
+  border: 2px solid $bg-color-primary;
+}
+
+.currentPeriod {
+  @include media-query(mobile-only) {
+    margin-bottom: 32px;
+  }
 }
 .currentPeriodText {
+  margin-bottom: 5px;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
@@ -50,6 +138,8 @@
   color: rgba(82, 85, 95, 0.7);
 }
 .currentPeriod_month {
+  display: flex;
+
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
@@ -61,49 +151,86 @@
   color: #000000;
 }
 .budget {
+  position: relative;
   display: flex;
   justify-content: center;
- 
-  padding: 7px;
-  margin-bottom: 32px ;
+  padding: 20px 10px;
 
-  box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
-border-radius: 30px;
+  margin-bottom: 32px;
+
+  box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
+  border-radius: 20px;
+
+  @include media-query(tablet) {
+    padding: 17px;
+
+    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+    border-radius: 30px;
+  }
+  &:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(-50%, -50%);
+    width: 1px;
+    height: 80%;
+    background-color: #e0e5eb;
+  }
 }
 .budgetText {
-  padding: 8px 20px;
-
   font-family: 'Roboto';
-  font-style: normal;
   font-weight: 700;
   font-size: 14px;
   line-height: 1.14;
   color: $color-secondary;
+
   &:not(:last-child) {
-    border-right: 1px solid #E0E5EB;
+    margin-right: 20px;
+    @include media-query(tablet) {
+      margin-right: 40px;
+    }
   }
-  
+
+  @include media-query(mobile-only) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   & .budgetText_expanse {
-    margin-left: 15px;
+    @include media-query(tablet) {
+      margin-left: 15px;
+    }
+
     color: #e53935;
   }
   & .budgetText_income {
-    margin-left: 15px;
+    @include media-query(tablet) {
+      margin-left: 15px;
+    }
     color: #407946;
   }
 }
-
 
 .budget_category {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
-  
-  padding: 20px 200px;
-  
-  box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
-  border-radius: 30px;
+
+  margin-bottom: 20px;
+
+  @include media-query(tablet) {
+    padding: 20px 50px;
+    margin-bottom: 32px;
+    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+    border-radius: 30px;
+  }
+
+  @include media-query(desktop) {
+    padding: 20px 200px;
+    margin-bottom: 40px;
+  }
 }
 
 .budget_category_type {
@@ -111,7 +238,30 @@ border-radius: 30px;
   margin-bottom: 32px;
 }
 
-.budget_type { 
-  margin: 0 16px;
+.budget_category_text {
+  font-family: 'Roboto';
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
+.budget_chart_box {
+  box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+  border-radius: 30px;
+  height: 100%;
+  max-width: 440px;
+
+  padding: 20px 32px;
+
+  @include media-query(tablet) {
+    height: 422px;
+    padding: 20px 32px;
+    max-width: 100%;
+  }
+
+  @include media-query(desktop) {
+    padding: 20px 138px;
+  }
+}
