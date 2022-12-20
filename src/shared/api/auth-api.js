@@ -6,6 +6,8 @@ export const instance = axios.create({
 
 export const setToken = async (token = '') => {
   instance.defaults.headers.Authorization = `Bearer ${token}`;
+  console.log(instance.defaults.headers.Authorization);
+
   //   instance.defaults.headers.common.authorization = `Bearer ${token}`;
   //   instance.defaults.headers.common['Authorization'] = token;
 };
@@ -25,7 +27,7 @@ export const login = async data => {
 };
 
 export const logout = async () => {
-  const { data: result } = await instance.post('auth/users/logout');
+  const { data: result } = await instance.get('api/auth/users/logout');
   setToken('');
   return result;
 };

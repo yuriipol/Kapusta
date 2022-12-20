@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { logoutUser } from 'redux/auth/auth-operations';
-import { clearUser } from 'redux/user/user-slice';
+import { clearUser } from '../../redux/user/user-slice';
 
 import s from './ModalExit.module.scss';
 
