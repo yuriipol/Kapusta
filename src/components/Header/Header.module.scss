@@ -1,20 +1,19 @@
 @import '../../index.scss';
 
-
 .main {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  @include media-query(mobile-only){
+  @include media-query(mobile-only) {
     width: 320px;
     margin: 0 auto;
   }
-  @include media-query(tablet-only){
+  @include media-query(tablet-only) {
     width: 768px;
     margin: 0 auto;
   }
-  @include media-query(desktop){
+  @include media-query(desktop) {
     width: 1280px;
     margin: 0 auto;
   }
@@ -39,18 +38,18 @@
   justify-content: space-between;
   margin-right: 6px;
   @include media-query(tablet-only) {
-    margin-right: 22px
+    margin-right: 22px;
   }
   @include media-query(mobile-only) {
     margin: 2px 10px 2px 0;
   }
 }
 
-.userAvatar{
+.userAvatar {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: #F5F6FA;
+  background: #f5f6fa;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
@@ -58,7 +57,7 @@
   line-height: 14px;
   text-align: center;
   letter-spacing: 0.04em;
-  color: #52555F;
+  color: #52555f;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -79,19 +78,19 @@
   line-height: 14px;
   text-align: right;
   letter-spacing: 0.04em;
-  color: #52555F;
+  color: #52555f;
   margin-right: 20px;
-  @include media-query(mobile-only){
+  @include media-query(mobile-only) {
     display: none;
   }
 }
 
-.devideSvg{
+.devideSvg {
   width: 0px;
   height: 34px;
-  border: 1px solid #E0E5EB;
+  border: 1px solid #e0e5eb;
   margin-right: 20px;
-  @include media-query(mobile-only){
+  @include media-query(mobile-only) {
     display: none;
   }
 }
@@ -104,14 +103,15 @@
   line-height: 14px;
   letter-spacing: 0.04em;
   text-decoration-line: underline;
-  @include media-query(mobile-only){
+  @include media-query(mobile-only) {
     display: none;
   }
 }
 
 .mobileExit {
   display: none;
-  @include media-query(mobile-only){
+  cursor: pointer;
+  @include media-query(mobile-only) {
     display: inline;
   }
 }

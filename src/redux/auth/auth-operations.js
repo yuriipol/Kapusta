@@ -5,34 +5,34 @@ import {
   login,
   logout,
   registration,
-  userInfo,
+  // userInfo,
+  googleGetData,
 } from '../../shared/api/auth-api';
 
-const userInfoOperation = createAsyncThunk(
-  'user/get',
-  async (data, { rejectWithValue }) => {
-    try {
-      const result = await userInfo(data);
-      return result;
-    } catch (error) {
-      return rejectWithValue(error.message);
-    }
-  }
-);
+// const userInfoOperation = createAsyncThunk(
+//   'user/get',
+//   async (data, { rejectWithValue }) => {
+//     try {
+//       const result = await userInfo(data);
+//       return result;
+//     } catch (error) {
+//       return rejectWithValue(error.message);
+//     }
+//   }
+// );
 
 export const registerUser = createAsyncThunk(
   'auth/register',
   async (data, { rejectWithValue }) => {
     try {
       const result = await registration(data);
-
+      const [name] = result.email.split('@');
       Notiflix.Report.success(
-        `${result.email} registration was successful`,
+        `${name} registration was successful`,
         'You need to login',
         'Okay'
       );
 
-      // console.log('auth/register-result2', result);
       return result;
     } catch (error) {
       console.log('error');
@@ -58,10 +58,37 @@ export const logInUser = createAsyncThunk(
   async (data, { rejectWithValue, dispatch }) => {
     try {
       const result = await login(data);
-      // console.log(result);
-      Notiflix.Notify.success(`Welcome ${result.user.email}`);
+      const [name] = result.user.email.split('@');
 
-      // dispatch(userInfoOperation(result.token));
+      Notiflix.Notify.success(`Welcome ${name}`);
+
+      return result;
+    } catch (error) {
+      const statusErr = error.response.status;
+
+      if (statusErr === 400) {
+        Notiflix.Notify.failure('Bad request. try again later');
+      }
+      if (statusErr === 403) {
+        Notiflix.Notify.failure(`${error.response.data.message}`);
+      }
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const logInGoogle = createAsyncThunk(
+  'auth/logIn/google',
+  async (_, { rejectWithValue, dispatch }) => {
+    try {
+      const result = await googleGetData();
+      const [name] = result.user.email.split('@');
+      Notiflix.Report.success(
+        `${name} google registration was successful`,
+        '',
+        'Okay'
+      );
+
       return result;
     } catch (error) {
       const statusErr = error.response.status;

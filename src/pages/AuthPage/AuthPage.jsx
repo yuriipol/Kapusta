@@ -13,7 +13,6 @@ const AuthPage = () => {
   return (
     <>
       <div className={s.section}>
-        {/* <div className="container"> */}
         <div className={s.wrapper}>
           <div className={s.titleGroup}>
             <h1 className={s.title}>
@@ -25,7 +24,6 @@ const AuthPage = () => {
         <div className={s.helper}></div>
 
         <AuthForm onSubmit={onSubmit} />
-        {/* </div> */}
       </div>
     </>
   );
