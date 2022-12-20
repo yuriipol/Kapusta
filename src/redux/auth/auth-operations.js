@@ -6,6 +6,7 @@ import {
   logout,
   registration,
   // userInfo,
+  googleGetData,
 } from '../../shared/api/auth-api';
 
 // const userInfoOperation = createAsyncThunk(
@@ -58,7 +59,35 @@ export const logInUser = createAsyncThunk(
     try {
       const result = await login(data);
       const [name] = result.user.email.split('@');
+
       Notiflix.Notify.success(`Welcome ${name}`);
+
+      return result;
+    } catch (error) {
+      const statusErr = error.response.status;
+
+      if (statusErr === 400) {
+        Notiflix.Notify.failure('Bad request. try again later');
+      }
+      if (statusErr === 403) {
+        Notiflix.Notify.failure(`${error.response.data.message}`);
+      }
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const logInGoogle = createAsyncThunk(
+  'auth/logIn/google',
+  async (_, { rejectWithValue, dispatch }) => {
+    try {
+      const result = await googleGetData();
+      const [name] = result.user.email.split('@');
+      Notiflix.Report.success(
+        `${name} google registration was successful`,
+        '',
+        'Okay'
+      );
 
       return result;
     } catch (error) {
