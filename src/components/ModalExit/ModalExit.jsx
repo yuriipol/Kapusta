@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { logoutUser } from 'redux/auth/auth-operations';
+import { clearUser } from 'redux/user/user-slice';
 
 import s from './ModalExit.module.scss';
 
@@ -8,6 +9,7 @@ const ModalExit = ({ close }) => {
 
   const logOut = () => {
     dispatch(logoutUser());
+    dispatch(clearUser());
     // localStorage.removeItem('persist:auth');
     close();
   };
