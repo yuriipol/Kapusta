@@ -125,12 +125,12 @@
     width: 288px;
     padding: 40px 29px 32px;
 
-    top: 30%;
-    left: 20%;
+    top: 31%;
+    left: 21%;
   }
   @include media-query(desktop) {
     top: 20%;
-    left: 40%;
+    left: 45%;
   }
 }
 
@@ -139,10 +139,11 @@
   position: absolute;
   bottom: 100%;
   left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
+  margin-left: -75px;
+  border-width: 16px;
   border-style: solid;
-  border-color: #031634 transparent transparent transparent;
+  border-color: #1d346a transparent transparent transparent;
+  rotate: 180deg;
 }
 
 .input:hover ~ .tooltiptext {
