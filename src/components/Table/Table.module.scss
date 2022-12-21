@@ -5,6 +5,8 @@
   @include media-query(mobile-only) {
     width: 320px;
     margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
   }
   @include media-query(tablet) {
     width: 624px;

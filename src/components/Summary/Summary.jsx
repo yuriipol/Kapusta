@@ -37,8 +37,8 @@ const Summary = () => {
   const rows = data.map(({ month, sum, id }) => {
     return (
       <tr key={id}>
-        <td>{month}</td>
-        <td>{sum}</td>
+        <td className={s.desc}>{month}</td>
+        <td className={s.desc}>{sum}</td>
       </tr>
     );
   });
@@ -46,8 +46,8 @@ const Summary = () => {
   return (
     <table className={s.table}>
       <thead>
-        <tr>
-          <th>Summary</th>
+        <tr className={s.row}>
+          <th className={s.head}>Summary</th>
         </tr>
       </thead>
 

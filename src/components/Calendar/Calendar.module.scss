@@ -4,7 +4,6 @@
   @include media-query(mobile-only) {
     margin: 0 auto;
     margin-top: 40px;
-    // margin-bottom: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -16,7 +15,7 @@
     display: flex;
     align-items: center;
   }
-  @include media-query(desktop){
+  @include media-query(desktop) {
     display: flex;
     align-items: center;
   }
@@ -53,10 +52,10 @@
     text-transform: uppercase;
     width: 70px;
     height: 40px;
-    color: #52555F;
+    color: #52555f;
     margin-left: 9px;
   }
-  @include media-query(desktop){
+  @include media-query(desktop) {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 900;
@@ -67,10 +66,14 @@
     letter-spacing: 0.04em;
     text-transform: uppercase;
 
-    color: #52555F;
+    color: #52555f;
     border: none;
     width: 73px;
     height: 40px;
     margin-right: 32px;
   }
 }
+
+// .react-datepicker__day--selected {
+//   background: #fb7c2e;
+// }

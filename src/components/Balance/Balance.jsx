@@ -37,14 +37,12 @@ const Balance = () => {
           type="number"
           name="balance"
           value={balance}
-          title="Hello! To get started, enter the current balance of your account!"
           placeholder="00.00 UAN"
           className={s.input}
           onChange={handleChange}
           required
         />
-        {/* <img className={s.image} src={Coment} alt="coment"></img> */}
-        <div className={s.coment}>
+        <div className={s.tooltiptext}>
           <p className={s.sentance1}>
             Hello! To get started, enter the <br></br> current balance of your
             account!

@@ -1,7 +1,7 @@
 @import '../../index.scss';
 
 .table {
-  @include media-query(tablet-only){
+  @include media-query(tablet-only) {
     border-collapse: collapse;
     width: 100%;
     margin-top: 40px;
@@ -10,13 +10,13 @@
     background: #f5f6fb;
     border-radius: 10px 10px 10px 0px;
   }
-  @include media-query(desktop){
+  @include media-query(desktop) {
     width: 213px;
     margin-left: 75px;
   }
 }
 
-th {
+.head {
   text-align: center;
   font-weight: 700;
   font-size: 12px;
@@ -29,7 +29,7 @@ th {
   //   margin-bottom: 4px;
   // }
 }
-tr {
+.row {
   height: 38px;
   border-bottom: 2px solid #ffffff;
 
@@ -41,7 +41,7 @@ tr {
   color: #52555f;
 }
 
-td {
+.desc {
   padding-right: 22px;
 
   @include media-query(desktop) {
