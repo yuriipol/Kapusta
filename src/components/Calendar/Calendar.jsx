@@ -6,6 +6,10 @@ import s from './Calendar.module.scss';
 
 const Calendar = () => {
   const [startDate, setStartDate] = useState(new Date());
+  // const newDate = `${startDate.getMonth()} ${startDate.getUTCFullYear()}`
+  // const changeMonths = startDate.setMonth(startDate.getMonth() - 1)
+  // console.log(startDate)
+  // console.log(changeMonths)
   return (
     <div className={s.date}>
       <img className={s.calendar} src={Icon} alt="Calendar" />

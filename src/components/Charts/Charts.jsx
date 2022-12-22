@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import {
   ResponsiveContainer,
   BarChart,
@@ -19,7 +21,7 @@ const Charts = ({ chartdata: data }) => {
   const { isMobile } = useResizeScreen();
 
   const renderCustomizedLabelName = props => {
-    const { x, y, width, value } = props;
+    const { x, y, value } = props;
 
     return (
       <g className={s.custom_text}>
@@ -154,5 +156,13 @@ const Charts = ({ chartdata: data }) => {
     </ResponsiveContainer>
   );
 };
+
+Charts.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    price: PropTypes.string.isRequired,
+  }))
+
+}
 
 export default Charts;

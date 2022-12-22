@@ -1,3 +1,4 @@
+// import PropTypes from 'prop-types';
 import { useState } from 'react';
 
 import { ReactComponent as Alcohol } from '../../shared/images/ReportsImages/expenseType/alcohol.svg';
@@ -14,8 +15,6 @@ import { ReactComponent as Technique } from '../../shared/images/ReportsImages/e
 import { ReactComponent as Transport } from '../../shared/images/ReportsImages/expenseType/transport.svg';
 
 import s from './ReportsType.module.scss'
-
-
 
 const Expense = () => {
   const [category, setCategory] = useState('Products')

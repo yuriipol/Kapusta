@@ -12,11 +12,44 @@
   @include media-query(desktop) {
     width: 746px;
   }
+
+  overflow: auto;
+  height: 342px;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    border-radius: 10px;
+    background-image: linear-gradient(to bottom, #fff 38px, #f5f6fb 38px);
+  }
+  &::-webkit-scrollbar-track {
+    margin-top: 38px;
+  }
+  &::-webkit-scrollbar-thumb {
+    height: 130px;
+    background: #ff751d;
+    border-radius: 2px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgb(255, 94, 0);
+    box-shadow: inset 0 0 6px rgba(252, 101, 0, 0.733);
+  }
 }
 
 .table {
   border-collapse: collapse;
   width: 100%;
+}
+
+.tableHead {
+  position: sticky;
+  top: 0;
+
+  & th:first-child {
+    border-top-left-radius: 20px;
+  }
+  & th:last-child {
+    border-top-right-radius: 20px;
+  }
 }
 
 .tHead,
@@ -35,7 +68,7 @@
     text-transform: uppercase;
     text-align: center;
     color: $color-primary;
-    padding: 11px;
+    padding: 11px 20px;
     background-color: $color-secondary-accent;
   }
   @include media-query(desktop) {
@@ -83,7 +116,7 @@
     text-transform: none;
     text-align: left;
     color: $color-secondary;
-    padding: 12px 0;
+    padding: 12px 20px;
   }
   @include media-query(desktop) {
   }
