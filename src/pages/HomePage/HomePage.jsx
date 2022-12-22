@@ -5,9 +5,8 @@ import Balance from 'components/Balance/Balance';
 import Calendar from 'components/Calendar/Calendar';
 import Accordion from 'components/Accordion/Accordion';
 import Product from 'components/Product/Product';
-import Summary from 'components/Summary/Summary';
+// import Summary from 'components/Summary/Summary';
 import Modal from 'components/Modal/Modal';
-import Table from '../../components/Table/Table';
 import TableForMobile from '../../components/Table/TableForMobile';
 
 import useResizeScreen from 'shared/hooks/useResizeScreen';
@@ -15,7 +14,7 @@ import useResizeScreen from 'shared/hooks/useResizeScreen';
 import Chart from '../../shared/images/HomePage/chart.svg';
 import s from './HomePage.module.scss';
 
-const HomePage = () => {
+const HomePage = ({ startDate, setStartDate }) => {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const mediaSize = useResizeScreen();
   const { isMobile } = mediaSize;
@@ -23,6 +22,8 @@ const HomePage = () => {
   const onClickToggleModal = () => {
     setIsOpenModal(!isOpenModal);
   };
+
+  // console.log(startDate);
 
   if (isMobile) {
     return (
@@ -36,7 +37,7 @@ const HomePage = () => {
               <img className={s.chart} src={Chart} alt="Chart" />
             </div>
             <Balance />
-            <Calendar />
+            <Calendar startDate={startDate} setStartDate={setStartDate} />
           </div>
         </div>
         <TableForMobile />
@@ -78,8 +79,9 @@ const HomePage = () => {
             <img className={s.chart} src={Chart} alt="Chart" />
           </div>
         </div>
-        <Accordion />
+        <Accordion startDate={startDate} setStartDate={setStartDate} />
       </div>
+      {/* <Summary /> */}
       <div className={s.kapusta}></div>
     </>
   );

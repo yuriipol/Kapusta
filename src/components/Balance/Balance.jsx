@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateUsersBalance } from 'redux/user/user-operations';
-// import Coment from '../../shared/images/HomePage/comment.svg';
 
 import s from './Balance.module.scss';
 
@@ -20,7 +19,7 @@ const Balance = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    console.log(state);
+    // console.log(state);
     dispatch(updateUsersBalance(state));
     reset();
   };

@@ -2,13 +2,11 @@
 
 .background {
   min-width: 320px;
+  height: 258px;
   padding: 40px 0px;
   background-color: $bg-color-secondary;
   border-radius: 0px 0px 0px 100px;
-  @include media-query(tablet-only){
-    height: 526px;
-  }
-  @include media-query(desktop){
+  @include media-query(tablet) {
     height: 526px;
   }
 }
@@ -18,7 +16,6 @@
   align-items: flex-end;
   justify-content: center;
   gap: 15px;
-  
 
   @include media-query(mobile-only) {
     margin-bottom: 40px;
@@ -28,6 +25,7 @@
   @include media-query(desktop) {
     right: 91px;
     top: 45px;
+    margin-left: 289px;
   }
 }
 
@@ -45,7 +43,7 @@
 }
 
 .btn {
-  margin-top: 40px;
+  margin-top: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -86,19 +84,19 @@
     background-image: url(../../shared/images/auth/kapusta_lg.svg);
     background-size: 100% 232px;
     background-repeat: no-repeat;
-    background-position: top 656px left 10;
+    background-position: bottom -100px right 0px;
   }
 }
 
 .HomeContainer {
-  @include media-query(tablet-only){
+  @include media-query(tablet-only) {
     width: 704px;
     margin: 40px auto 60px auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
-  @include media-query(desktop){
+  @include media-query(desktop) {
     width: 1098px;
     margin: 0 auto;
     display: flex;
@@ -107,7 +105,6 @@
   }
 }
 
-
-.test{
+.test {
   display: none;
 }

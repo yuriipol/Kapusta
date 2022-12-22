@@ -1,20 +1,11 @@
 @import '../../index.scss';
 
-// .tooltip {
-//   position: relative;
-//   display: inline-block;
-//   border-bottom: 1px dotted black;
-// }
-
 .form {
+  position: relative;
   @include media-query(tablet) {
     display: flex;
     align-items: center;
     flex-direction: row;
-  }
-
-  @include media-query(desktop) {
-    margin-right: 289px;
   }
 }
 
@@ -114,23 +105,25 @@
   border-radius: 30px;
   color: #fff;
   text-align: center;
-  position: absolute;
+  position: fixed;
   z-index: 1;
-  top: 70%;
-  left: 25%;
-  margin-left: -60px;
+  top: 38%;
+  left: 6%;
+
   opacity: 0;
   transition: opacity 0.3s;
+  @include media-query(responsive) {
+    top: 38%;
+    left: 25%;
+  }
   @include media-query(tablet) {
+    position: absolute;
     width: 288px;
+    margin-left: -60px;
     padding: 40px 29px 32px;
 
-    top: 31%;
-    left: 21%;
-  }
-  @include media-query(desktop) {
-    top: 20%;
-    left: 45%;
+    top: 132%;
+    left: 35%;
   }
 }
 
