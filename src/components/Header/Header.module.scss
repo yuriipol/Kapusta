@@ -103,6 +103,7 @@
   line-height: 14px;
   letter-spacing: 0.04em;
   text-decoration-line: underline;
+  cursor: pointer;
   @include media-query(mobile-only) {
     display: none;
   }
