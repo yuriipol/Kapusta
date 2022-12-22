@@ -1,3 +1,4 @@
+
 import { useState } from "react"
 import { useNavigate } from "../../../node_modules/react-router-dom/dist/index";
 
@@ -5,6 +6,7 @@ import { ReactComponent as Back } from '../../shared/images/ReportsImages/back.s
 import { ReactComponent as VectorLeft } from '../../shared/images/ReportsImages/VectorLeft.svg';
 import { ReactComponent as VectorRight } from '../../shared/images/ReportsImages/VectorRight.svg';
 
+import Balance from "components/Balance/Balance";
 import Expense from "components/ReportsType/Expense";
 import Income from "components/ReportsType/Income";
 import Charts from "components/Charts/Charts";
@@ -60,7 +62,7 @@ const ReportsPage = () => {
   const [isExpanse, setIsExpanse] = useState(true)
   const navigate = useNavigate()
 
-  const { isMobile } = useResizeScreen()
+  const { isMobile, isDesctop } = useResizeScreen()
 
   const toggleIsExpanse = () => {
     setIsExpanse(!isExpanse)
@@ -76,9 +78,9 @@ const ReportsPage = () => {
           {!isMobile && 'Main page'}
         </button>}
 
-        <div className={s.balance_wrapper}>
+        {isDesctop ? <Balance /> : <div className={s.balance_wrapper}>
           <p className={s.balance_text}>Balance:</p><p className={s.balance_amount}>55 000.00 UAH</p>
-        </div>
+        </div>}
         <div className={s.currentPeriod}>
           <p className={s.currentPeriodText}>Current period:</p>
           <div className={s.currentPeriod_month}>
@@ -115,11 +117,9 @@ const ReportsPage = () => {
         {isExpanse ? <Expense /> : <Income />}
       </div>
 
-
       {isMobile ? <Charts chartdata={data} /> : <div className={s.budget_chart_box}>
         <Charts chartdata={data} />
       </div>}
-
 
     </div>
   );

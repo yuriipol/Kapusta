@@ -25,6 +25,174 @@ const data = [
     sum: '-2000.00',
     id: '3',
   },
+  // {
+  //   data: '05.09.2019',
+  //   description: 'My salary',
+  //   category: 'Salary',
+  //   sum: '20000.00',
+  //   id: '1',
+  // },
+  // {
+  //   data: '05.09.2019',
+  //   description: 'Bananas',
+  //   category: 'Products',
+  //   sum: '-50.00',
+  //   id: '2',
+  // },
+  // {
+  //   data: '05.09.2019',
+  //   description: 'Undeground',
+  //   category: 'Transport',
+  //   sum: '-2000.00',
+  //   id: '3',
+  // },
+  // {
+  //   data: '05.09.2019',
+  //   description: 'My salary',
+  //   category: 'Salary',
+  //   sum: '20000.00',
+  //   id: '1',
+  // },
+  // {
+  //   data: '05.09.2019',
+  //   description: 'Bananas',
+  //   category: 'Products',
+  //   sum: '-50.00',
+  //   id: '2',
+  // },
+  // {
+  //   data: '05.09.2019',
+  //   description: 'Undeground',
+  //   category: 'Transport',
+  //   sum: '-2000.00',
+  //   id: '3',
+  // },
+  // {
+  //   data: '05.09.2019',
+  //   description: 'My salary',
+  //   category: 'Salary',
+  //   sum: '20000.00',
+  //   id: '1',
+  // },
+  // {
+  //   data: '05.09.2019',
+  //   description: 'Bananas',
+  //   category: 'Products',
+  //   sum: '-50.00',
+  //   id: '2',
+  // },
+  // {
+  //   data: '05.09.2019',
+  //   description: 'Undeground',
+  //   category: 'Transport',
+  //   sum: '-2000.00',
+  //   id: '3',
+  // },
+  // {
+  //   data: '05.09.2019',
+  //   description: 'My salary',
+  //   category: 'Salary',
+  //   sum: '20000.00',
+  //   id: '1',
+  // },
+  // {
+  //   data: '05.09.2019',
+  //   description: 'Bananas',
+  //   category: 'Products',
+  //   sum: '-50.00',
+  //   id: '2',
+  // },
+  // {
+  //   data: '05.09.2019',
+  //   description: 'Undeground',
+  //   category: 'Transport',
+  //   sum: '-2000.00',
+  //   id: '3',
+  // },
+  // {
+  //   data: '05.09.2019',
+  //   description: 'My salary',
+  //   category: 'Salary',
+  //   sum: '20000.00',
+  //   id: '1',
+  // },
+  // {
+  //   data: '05.09.2019',
+  //   description: 'Bananas',
+  //   category: 'Products',
+  //   sum: '-50.00',
+  //   id: '2',
+  // },
+  // {
+  //   data: '05.09.2019',
+  //   description: 'Undeground',
+  //   category: 'Transport',
+  //   sum: '-2000.00',
+  //   id: '3',
+  // },
+  // {
+  //   data: '05.09.2019',
+  //   description: 'My salary',
+  //   category: 'Salary',
+  //   sum: '20000.00',
+  //   id: '1',
+  // },
+  // {
+  //   data: '05.09.2019',
+  //   description: 'Bananas',
+  //   category: 'Products',
+  //   sum: '-50.00',
+  //   id: '2',
+  // },
+  // {
+  //   data: '05.09.2019',
+  //   description: 'Undeground',
+  //   category: 'Transport',
+  //   sum: '-2000.00',
+  //   id: '3',
+  // },
+  // {
+  //   data: '05.09.2019',
+  //   description: 'My salary',
+  //   category: 'Salary',
+  //   sum: '20000.00',
+  //   id: '1',
+  // },
+  // {
+  //   data: '05.09.2019',
+  //   description: 'Bananas',
+  //   category: 'Products',
+  //   sum: '-50.00',
+  //   id: '2',
+  // },
+  // {
+  //   data: '05.09.2019',
+  //   description: 'Undeground',
+  //   category: 'Transport',
+  //   sum: '-2000.00',
+  //   id: '3',
+  // },
+  // {
+  //   data: '05.09.2019',
+  //   description: 'My salary',
+  //   category: 'Salary',
+  //   sum: '20000.00',
+  //   id: '1',
+  // },
+  // {
+  //   data: '05.09.2019',
+  //   description: 'Bananas',
+  //   category: 'Products',
+  //   sum: '-50.00',
+  //   id: '2',
+  // },
+  // {
+  //   data: '05.09.2019',
+  //   description: 'Undeground',
+  //   category: 'Transport',
+  //   sum: '-2000.00',
+  //   id: '3',
+  // },
 ];
 // const difClass = suma => {
 //   const result = suma >= 0 ? 's.incom' : 's.outcom';
@@ -55,7 +223,7 @@ const Table = () => {
   return (
     <div className={s.wrapper}>
       <table className={s.table}>
-        <thead>
+        <thead className={s.tableHead}>
           <tr className={s.tRow}>
             <th className={s.tHead}>Date</th>
             <th className={s.tHead}>Description</th>
@@ -65,7 +233,7 @@ const Table = () => {
           </tr>
         </thead>
 
-        <tbody>{rows}</tbody>
+        <tbody className={s.tableBody}>{rows}</tbody>
       </table>
     </div>
   );

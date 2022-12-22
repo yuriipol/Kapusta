@@ -4,7 +4,6 @@
   @include media-query(mobile-only) {
     margin: 0 auto;
     margin-top: 40px;
-    // margin-bottom: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -16,7 +15,7 @@
     display: flex;
     align-items: center;
   }
-  @include media-query(desktop){
+  @include media-query(desktop) {
     display: flex;
     align-items: center;
   }
@@ -30,47 +29,34 @@
 }
 
 .DatePicker {
-  @include media-query(mobile-only) {
-    border: none;
-    font-weight: 900;
-    font-size: 12px;
-    line-height: 1.17;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: $color-secondary;
-    background-color: transparent;
-  }
-  @include media-query(tablet-only) {
-    border: none;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 900;
-    font-size: 12px;
-    line-height: 14px;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    width: 70px;
-    height: 40px;
-    color: #52555F;
+  width: 102px;
+  height: 40px;
+  outline: none;
+  border: none;
+  font-weight: 900;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: $color-secondary;
+  background-color: transparent;
+
+  @include media-query(tablet) {
+    width: 100px;
     margin-left: 9px;
   }
-  @include media-query(desktop){
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 900;
-    font-size: 12px;
-    line-height: 14px;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-
-    color: #52555F;
-    border: none;
+  @include media-query(desktop) {
     width: 73px;
-    height: 40px;
     margin-right: 32px;
   }
 }
+.popper {
+  width: 280px;
+  position: absolute;
+  inset: 0px auto auto 0px;
+  transform: translate3d(50px, 210.5px, 0px);
+}
+
+// .react-datepicker__day--selected {
+//   background-color: #fb7c2e;
+// }

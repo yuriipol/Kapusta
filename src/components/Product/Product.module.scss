@@ -2,16 +2,16 @@
 @import '../../shared/styles/index';
 
 .background {
-  @include media-query(tablet-only){
+  @include media-query(tablet-only) {
     display: flex;
     background-color: white;
-    border: 2px solid #F5F6FB;
+    border: 2px solid #f5f6fb;
     border-radius: 16px 16px 16px 0px;
     width: 480px;
     height: 44px;
     align-items: center;
   }
-  @include media-query(mobile-only){
+  @include media-query(mobile-only) {
     width: 100%;
     height: 258px;
     padding-top: 56px;
@@ -21,20 +21,20 @@
     background-color: $bg-color-secondary;
     border-radius: 0px 0px 0px 100px;
   }
-  @include media-query (desktop){
+  @include media-query(desktop) {
     display: flex;
     align-items: center;
     background-color: white;
     width: 578px;
     height: 44px;
-    border: 2px solid #F6F7FC;
+    border: 2px solid #f6f7fc;
     border-radius: 16px 16px 16px 0px;
     margin-right: 16px;
   }
 }
 
 .descriptionInput {
-  @include media-query(desktop){
+  @include media-query(desktop) {
     border: none;
     font-family: 'Roboto';
     font-style: normal;
@@ -45,11 +45,11 @@
     align-items: center;
     letter-spacing: 0.02em;
 
-    color: #C7CCDC;
+    color: #c7ccdc;
     width: 238.51px;
     height: 40px;
   }
-  @include media-query(tablet-only){
+  @include media-query(tablet-only) {
     border: none;
     width: 159.32px;
     height: 40px;
@@ -61,9 +61,9 @@
     display: flex;
     align-items: center;
     letter-spacing: 0.02em;
-    color: #C7CCDC;
+    color: #c7ccdc;
   }
-  @include media-query(mobile-only){
+  @include media-query(mobile-only) {
     width: 280px;
     height: 44px;
     padding: 0;
@@ -79,29 +79,24 @@
       line-height: 1.17;
       letter-spacing: 0.02em;
       text-align: left;
-  
+
       color: #c7ccdc;
     }
   }
 }
 
-// .vector {
-//   width: 10px;
-//   height: 4px;
-// }
-
 .wrapper {
-  @include media-query(desktop){
+  @include media-query(desktop) {
     display: flex;
     align-items: center;
   }
-  @include media-query(tablet-only){
+  @include media-query(tablet-only) {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 140px;
   }
-  @include media-query(mobile-only){
+  @include media-query(mobile-only) {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -110,7 +105,7 @@
 }
 
 .calculatorInput {
-  @include media-query(desktop){
+  @include media-query(desktop) {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
@@ -121,12 +116,12 @@
     text-align: center;
     letter-spacing: 0.02em;
 
-    color: #C7CCDC;
+    color: #c7ccdc;
     width: 119.25px;
     height: 40px;
     border: none;
   }
-  @include media-query(mobile-only){
+  @include media-query(mobile-only) {
     height: 44px;
     padding: 0;
     font-weight: 700;
@@ -145,7 +140,7 @@
       color: #000000;
     }
   }
-  @include media-query(tablet-only){
+  @include media-query(tablet-only) {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
@@ -156,7 +151,7 @@
     text-align: center;
     letter-spacing: 0.02em;
 
-    color: #C7CCDC;
+    color: #c7ccdc;
     border: none;
     width: 40px;
     &::placeholder {
@@ -172,13 +167,12 @@
   }
 }
 
-.checkBoxList{
+.checkBoxList {
   width: 186px;
-
 }
 
 .select {
-  @include media-query(mobile-only){
+  @include media-query(mobile-only) {
     width: 280px;
     height: 44px;
     margin: 0 auto;
@@ -186,9 +180,9 @@
 }
 
 .image {
-  @include media-query(tablet-only){
+  @include media-query(tablet-only) {
   }
-  @include media-query(mobile-only){
+  @include media-query(mobile-only) {
     padding: 10px 20px;
     background: transparent;
     border: 2px solid #ffffff;
@@ -198,14 +192,14 @@
 }
 
 .calculator {
-  @include media-query(tablet-only){
+  @include media-query(tablet-only) {
     width: 20px;
     height: 20px;
     :hover {
       border: none;
     }
   }
-  @include media-query(mobile-only){
+  @include media-query(mobile-only) {
     width: 20px;
     height: 20px;
   }
@@ -213,21 +207,21 @@
 }
 
 .btn {
-  @include media-query(mobile-only){
+  @include media-query(mobile-only) {
     width: 136px;
     height: 44px;
-  
+
     font-weight: 700;
     font-size: 12px;
     line-height: 1.17;
     letter-spacing: 0.02em;
     text-transform: uppercase;
-  
+
     color: $color-secondary;
     background: #ffffff;
     border: 2px solid #f6f7fc;
     border-radius: 16px;
-  
+
     &:hover,
     &:focus {
       color: #ffffff;
@@ -237,7 +231,7 @@
 }
 
 .groupBtn {
-  @include media-query(mobile-only){
+  @include media-query(mobile-only) {
     display: flex;
     flex-direction: row;
     align-items: center;
