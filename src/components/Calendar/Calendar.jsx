@@ -11,6 +11,7 @@ const Calendar = () => {
       <img className={s.calendar} src={Icon} alt="Calendar" />
       <DatePicker
         className={s.DatePicker}
+        popperClassName={s.popper}
         selected={startDate}
         onChange={date => setStartDate(date)}
         dateFormat="dd.MM.yyyy"
