@@ -73,14 +73,14 @@
 
 .kapusta {
   @include media-query(tablet-only) {
-    height: 378px;
+    height: 678px;
     background-image: url(../../shared/images/auth/2kapustas_md.svg);
     background-size: 183px 146px;
     background-repeat: no-repeat;
     background-position: bottom 59px right 88px;
   }
   @include media-query(desktop) {
-    height: 194px;
+    height: 294px;
     background-image: url(../../shared/images/auth/kapusta_lg.svg);
     background-size: 100% 232px;
     background-repeat: no-repeat;
@@ -105,6 +105,6 @@
   }
 }
 
-.test {
-  display: none;
-}
+// .test {
+//   display: none;
+// }

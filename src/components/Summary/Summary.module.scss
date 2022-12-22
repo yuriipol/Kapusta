@@ -1,7 +1,7 @@
 @import '../../index.scss';
 
 .table {
-  @include media-query(tablet-only) {
+  @include media-query(tablet) {
     border-collapse: collapse;
     width: 100%;
     margin-top: 40px;
@@ -12,6 +12,7 @@
   }
   @include media-query(desktop) {
     width: 213px;
+    margin: 0;
     margin-left: 75px;
   }
 }
@@ -31,18 +32,19 @@
 }
 .row {
   height: 38px;
-  border-bottom: 2px solid #ffffff;
+  padding: 0;
 
+  border-bottom: 2px solid #ffffff;
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-
   color: #52555f;
 }
 
 .desc {
   padding-right: 22px;
+  padding-left: 20px;
 
   @include media-query(desktop) {
     padding-left: 12px;

@@ -5,7 +5,6 @@ import Balance from 'components/Balance/Balance';
 import Calendar from 'components/Calendar/Calendar';
 import Accordion from 'components/Accordion/Accordion';
 import Product from 'components/Product/Product';
-// import Summary from 'components/Summary/Summary';
 import Modal from 'components/Modal/Modal';
 import TableForMobile from '../../components/Table/TableForMobile';
 
@@ -81,7 +80,6 @@ const HomePage = ({ startDate, setStartDate }) => {
         </div>
         <Accordion startDate={startDate} setStartDate={setStartDate} />
       </div>
-      {/* <Summary /> */}
       <div className={s.kapusta}></div>
     </>
   );

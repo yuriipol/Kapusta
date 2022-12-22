@@ -11,19 +11,22 @@ const Income = ({ startDate, setStartDate }) => {
 
   if (isTablet) {
     return (
-      <div className={s.income_Wrapper}>
-        <div className={s.firstSection_Wrapper}>
-          <Calendar startDate={startDate} setStartDate={setStartDate} />
-          <ProductTablet />
+      <>
+        <div className={s.income_Wrapper}>
+          <div className={s.firstSection_Wrapper}>
+            <Calendar startDate={startDate} setStartDate={setStartDate} />
+            <ProductTablet />
+          </div>
+          <div className={s.secondSection_Wrapper}>
+            <button className={s.btn}>Input</button>
+            <button className={s.btn}>Clear</button>
+          </div>
+          <div className={s.test}>
+            <Table />
+          </div>
         </div>
-        <div className={s.secondSection_Wrapper}>
-          <button className={s.btn}>Input</button>
-          <button className={s.btn}>Clear</button>
-        </div>
-        <div className={s.test}>
-          <Table />
-        </div>
-      </div>
+        <Summary />
+      </>
     );
   }
   return (
