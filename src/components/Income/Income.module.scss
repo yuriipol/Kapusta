@@ -1,16 +1,15 @@
 @import '../../index.scss';
 @import '../../shared/styles/index';
 
-
 .income_Wrapper {
-  @include media-query(tablet-only){
+  @include media-query(tablet-only) {
     background-color: white;
     box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
     border-radius: 0px 30px 30px 30px;
     height: 616px;
     padding: 20px 40px 42px 40px;
   }
-  @include media-query(desktop){
+  @include media-query(desktop) {
     height: 579px;
     background-color: white;
     box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
@@ -19,15 +18,14 @@
   }
 }
 
-
 .firstSection_Wrapper {
-  @include media-query(tablet-only){
+  @include media-query(tablet-only) {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin: 4px 0 32px 0;
   }
-  @include media-query(desktop){
+  @include media-query(desktop) {
     display: flex;
     align-items: center;
     margin-bottom: 60px;
@@ -35,16 +33,16 @@
 }
 
 .btn {
-  @include media-query(desktop){
+  @include media-query(desktop) {
     width: 136px;
     height: 44px;
-  
+
     font-weight: 700;
     font-size: 12px;
     line-height: 1.17;
     letter-spacing: 0.02em;
     text-transform: uppercase;
-  
+
     color: $color-secondary;
     background: #ffffff;
     border: 2px solid #f6f7fc;
@@ -56,31 +54,30 @@
       background: $color-accent;
     }
   }
-  @include media-query(tablet-only){
+  @include media-query(tablet-only) {
     width: 136px;
     height: 44px;
-  
+
     font-weight: 700;
     font-size: 12px;
     line-height: 1.17;
     letter-spacing: 0.02em;
     text-transform: uppercase;
-  
+
     color: $color-secondary;
     background: #ffffff;
     border: 2px solid #f6f7fc;
     border-radius: 16px;
-  
+
     &:hover,
     &:focus {
       color: #ffffff;
       background: $color-accent;
     }
   }
-
 }
 .secondSection_Wrapper {
-  @include media-query(tablet-only){
+  @include media-query(tablet-only) {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -90,6 +87,6 @@
   }
 }
 
-.tabSumWrapper{
+.tabSumWrapper {
   display: flex;
 }

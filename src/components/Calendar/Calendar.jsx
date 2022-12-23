@@ -1,11 +1,11 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import Icon from '../../shared/images/HomePage/calendar.svg';
 import s from './Calendar.module.scss';
 
-const Calendar = () => {
-  const [startDate, setStartDate] = useState(new Date());
+const Calendar = ({ startDate, setStartDate }) => {
+  // const [startDate, setStartDate] = useState(new Date());
   // const newDate = `${startDate.getMonth()} ${startDate.getUTCFullYear()}`
   // const changeMonths = startDate.setMonth(startDate.getMonth() - 1)
   // console.log(startDate)
