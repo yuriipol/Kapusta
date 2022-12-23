@@ -11,6 +11,8 @@ const NotFoundPage = lazy(() => import('pages/NotFoundPage/NotFoundPage'));
 const UserRoutes = () => {
   const [startDate, setStartDate] = useState(new Date());
 
+  // const dateValue = startDate
+
   return (
     <Suspense fallback={<h3>Loading page...</h3>}>
       <Routes>
@@ -22,7 +24,7 @@ const UserRoutes = () => {
               <HomePage startDate={startDate} setStartDate={setStartDate} />
             }
           />
-          <Route path="/reports" element={<ReportsPage />} />
+          <Route path="/reports" element={<ReportsPage startDate={startDate} />} />
         </Route>
 
         <Route path="*" element={<NotFoundPage />} />
