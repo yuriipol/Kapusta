@@ -9,7 +9,6 @@ const ReportsPage = lazy(() => import('pages/ReportsPage/ReportsPage'));
 const NotFoundPage = lazy(() => import('pages/NotFoundPage/NotFoundPage'));
 
 const UserRoutes = () => {
-
   return (
     <Suspense fallback={<h3>Loading page...</h3>}>
       <Routes>

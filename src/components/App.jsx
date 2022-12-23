@@ -3,7 +3,7 @@
 // import AuthPage from '../pages/AuthPage/AuthPage';
 // import NotFoundPage from '../pages/NotFoundPage/NotFoundPage';
 import UserRoutes from './UserRouts/UserRoutes';
-import Header from './Header/Header';
+// import Header from './Header/Header';
 export const App = () => {
   return (
     <div>
@@ -11,7 +11,7 @@ export const App = () => {
       {/* <ReportsPage /> */}
       {/* <AuthPage /> */}
       {/* <NotFoundPage /> */}
-      <Header />
+      {/* <Header /> */}
       <UserRoutes />
     </div>
   );

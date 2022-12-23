@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import Header from '../../components/Header/Header';
 import Balance from 'components/Balance/Balance';
 import Calendar from 'components/Calendar/Calendar';
 import Accordion from 'components/Accordion/Accordion';
@@ -27,6 +28,7 @@ const HomePage = () => {
   if (isMobile) {
     return (
       <>
+        <Header />
         <div className={s.background}>
           <div className="container">
             <div className={s.wrapper}>
@@ -56,7 +58,6 @@ const HomePage = () => {
             Income
           </button>
         </div>
-
         {isOpenModal && (
           <Modal close={onClickToggleModal}>
             <Product />
@@ -68,6 +69,7 @@ const HomePage = () => {
 
   return (
     <>
+      <Header />
       <div className={s.background}>
         <div className={s.HomeContainer}>
           <Balance />
