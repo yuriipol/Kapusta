@@ -36,17 +36,17 @@
 }
 
 .buttons_wrapper {
-  @include media-query(tablet-only){
+  @include media-query(tablet-only) {
     // margin-left: 32px;
   }
 }
 
-.expenses_income_wrapper{
-  @include media-query(tablet-only){
+.expenses_income_wrapper {
+  @include media-query(tablet-only) {
     width: 704px;
     margin: 0 auto;
   }
-  @include media-query(desktop){
+  @include media-query(desktop) {
     width: 1098px;
     margin: 8px auto 0;
   }

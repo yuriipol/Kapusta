@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
-
+import { useState } from 'react';
 import PrivateRoute from './PrivateRoute';
 
 const AuthPage = lazy(() => import('pages/AuthPage/AuthPage'));
@@ -9,13 +9,19 @@ const ReportsPage = lazy(() => import('pages/ReportsPage/ReportsPage'));
 const NotFoundPage = lazy(() => import('pages/NotFoundPage/NotFoundPage'));
 
 const UserRoutes = () => {
+  const [startDate, setStartDate] = useState(new Date());
 
   return (
     <Suspense fallback={<h3>Loading page...</h3>}>
       <Routes>
         <Route path="/" element={<AuthPage />} />
         <Route element={<PrivateRoute />}>
-          <Route path="/home" element={<HomePage />} />
+          <Route
+            path="/home"
+            element={
+              <HomePage startDate={startDate} setStartDate={setStartDate} />
+            }
+          />
           <Route path="/reports" element={<ReportsPage />} />
         </Route>
 

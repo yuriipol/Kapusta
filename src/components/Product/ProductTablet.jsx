@@ -1,4 +1,3 @@
-// import Vector from '../../shared/images/HomePage/vector.svg';
 import Calculator from '../../shared/images/HomePage/calculator.svg';
 import CreatableSelect from 'react-select/creatable';
 import options from '../../shared/options';
@@ -14,7 +13,7 @@ const Product_Table = () => {
           placeholder="Product description"
         />
         <CreatableSelect
-          className={s.checkBoxList}
+          className={'product-select'}
           classNamePrefix={'custom'}
           placeholder="Product category"
           options={options}
