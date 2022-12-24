@@ -9,6 +9,8 @@ import {
   googleGetData,
 } from '../../shared/api/auth-api';
 
+import { userInfoOperation } from 'redux/user/user-operations';
+
 // const userInfoOperation = createAsyncThunk(
 //   'user/get',
 //   async (data, { rejectWithValue }) => {
@@ -61,6 +63,7 @@ export const logInUser = createAsyncThunk(
       const [name] = result.user.email.split('@');
 
       Notiflix.Notify.success(`Welcome ${name}`);
+      dispatch(userInfoOperation(result.token));
 
       return result;
     } catch (error) {
