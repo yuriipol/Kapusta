@@ -48,19 +48,7 @@
 .userAvatar {
   width: 32px;
   height: 32px;
-  border-radius: 50%;
-  background: #f5f6fa;
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 14px;
-  text-align: center;
-  letter-spacing: 0.04em;
-  color: #52555f;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
   margin-right: 12px;
   @include media-query(tablet-only) {
     margin-right: 16px;
@@ -70,10 +58,11 @@
   }
 }
 
+.imgAvatar {
+  border-radius: 50%;
+}
+
 .username {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
   font-size: 12px;
   line-height: 14px;
   text-align: right;
@@ -96,9 +85,6 @@
 }
 
 .exit {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
   font-size: 12px;
   line-height: 14px;
   letter-spacing: 0.04em;

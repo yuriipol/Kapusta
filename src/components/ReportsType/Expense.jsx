@@ -1,6 +1,8 @@
 // import PropTypes from 'prop-types';
 import { useState } from 'react';
 
+import svgArray from './svgArray';
+
 import { ReactComponent as Alcohol } from '../../shared/images/ReportsImages/expenseType/alcohol.svg';
 import { ReactComponent as Bg } from '../../shared/images/ReportsImages/expenseType/bg.svg';
 import { ReactComponent as Communal } from '../../shared/images/ReportsImages/expenseType/communal.svg';
@@ -18,9 +20,20 @@ import s from './ReportsType.module.scss'
 
 const Expense = () => {
   const [category, setCategory] = useState('Products')
+  // console.log(svgArray)
+
+
 
   return (
     <ul className={s.category_list}>
+      <li className={category === 'Tst' ? `${s.category_item} ${s.active}` : `${s.category_item}`} onClick={() => setCategory('Products')}>
+        <p className={s.category_price}>11111.00</p>
+        <div className={s.category_svg_box}>
+          <svgArray.Alcohol className={s.category_svg_image} />
+          <svgArray.Bg className={s.category_svg_bg} />
+        </div>
+        <p className={s.category_name}>Test</p>
+      </li>
       <li className={category === 'Products' ? `${s.category_item} ${s.active}` : `${s.category_item}`} onClick={() => setCategory('Products')}>
         <p className={s.category_price}>5 000.00</p>
         <div className={s.category_svg_box}>
