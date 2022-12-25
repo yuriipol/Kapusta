@@ -47,14 +47,14 @@ export const getUserByID = async id => {
   return result;
 };
 
-export const googleLogin = async () => {
-  console.log('googleLogin');
+// export const googleLogin = async () => {
+//   console.log('googleLogin');
 
-  await instance.get('api/auth/users/google');
-  //   console.log('result-googleLogin', result);
-  //   setToken(result.token);
-  //   return;
-};
+//   await instance.get('api/auth/users/google');
+//   //   console.log('result-googleLogin', result);
+//   //   setToken(result.token);
+//   //   return;
+// };
 export const googleGetData = async () => {
   console.log('googleGetData');
 

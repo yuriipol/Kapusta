@@ -82,6 +82,7 @@ export const logInGoogle = createAsyncThunk(
   async (_, { rejectWithValue, dispatch }) => {
     try {
       const result = await googleGetData();
+      // console.log('result from auth/logIn/google operation', result);
       const [name] = result.user.email.split('@');
       Notiflix.Report.success(
         `${name} google registration was successful`,
