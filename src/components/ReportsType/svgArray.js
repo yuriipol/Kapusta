@@ -1,5 +1,4 @@
 import { ReactComponent as Alcohol } from '../../shared/images/ReportsImages/expenseType/alcohol.svg';
-import { ReactComponent as Bg } from '../../shared/images/ReportsImages/expenseType/bg.svg';
 import { ReactComponent as Communal } from '../../shared/images/ReportsImages/expenseType/communal.svg';
 import { ReactComponent as Education } from '../../shared/images/ReportsImages/expenseType/education.svg';
 import { ReactComponent as Entertaiment } from '../../shared/images/ReportsImages/expenseType/entertaiment.svg';
@@ -13,21 +12,19 @@ import { ReactComponent as Transport } from '../../shared/images/ReportsImages/e
 import { ReactComponent as AddIncome } from '../../shared/images/ReportsImages/incomeType/addIncome.svg';
 import { ReactComponent as Salary } from '../../shared/images/ReportsImages/incomeType/salary.svg';
 
-const svgArray = {
-  Alcohol,
-  Bg,
-  Communal,
-  Education,
-  Entertaiment,
-  Health,
-  Hobbies,
-  Housing,
-  Other,
-  Product,
-  Technique,
-  Transport,
-  AddIncome,
-  Salary,
-};
-
+const svgArray = [
+  { category: 'PRODUCTS', svg: Product },
+  { category: 'TRANSPORT', svg: Transport },
+  { category: 'ENTERTAINMENT', svg: Entertaiment },
+  { category: 'ALCOHOL', svg: Alcohol },
+  { category: 'HEALTH', svg: Health },
+  { category: 'HOUSING', svg: Housing },
+  { category: 'TECHNIQUE', svg: Technique },
+  { category: 'COMMUNAL, COMMUNICATION', svg: Communal },
+  { category: 'SPORTS, HOBBIES', svg: Hobbies },
+  { category: 'EDUCATION', svg: Education },
+  { category: 'SALARY', svg: Salary },
+  { category: 'ADD. INCOME', svg: AddIncome },
+  { category: 'OTHER', svg: Other },
+];
 export default svgArray;
