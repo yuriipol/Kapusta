@@ -49,6 +49,14 @@
   }
   @include media-query(desktop) {
   }
+  &:hover,
+  &:focus {
+    color: $bg-color-primary;
+    background-color: $color-accent;
+    box-shadow: 1px 3px 5px rgba(255, 107, 8, 0.35);
+    scale: 1.05;
+    transition: 500ms;
+  }
 }
 
 .googleIcon {
@@ -235,8 +243,6 @@
     box-shadow: 1px 3px 5px rgba(255, 107, 8, 0.35);
     scale: 1.05;
     transition: 500ms;
-  }
-  @include media-query(tablet) {
   }
 }
 

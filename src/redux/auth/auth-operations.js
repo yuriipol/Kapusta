@@ -2,11 +2,11 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import Notiflix from 'notiflix';
 
 import {
+  setToken,
   login,
   logout,
   registration,
   // userInfo,
-  googleGetData,
 } from '../../shared/api/auth-api';
 
 import { userInfoOperation } from 'redux/user/user-operations';
@@ -82,28 +82,16 @@ export const logInUser = createAsyncThunk(
 
 export const logInGoogle = createAsyncThunk(
   'auth/logIn/google',
-  async (_, { rejectWithValue, dispatch }) => {
-    try {
-      const result = await googleGetData();
-      const [name] = result.user.email.split('@');
-      Notiflix.Report.success(
-        `${name} google registration was successful`,
-        '',
-        'Okay'
-      );
+  (data, { rejectWithValue, dispatch }) => {
+    setToken(data.token);
+    const [name] = data.email.split('@');
+    Notiflix.Report.success(
+      `${name} google registration was successful`,
+      '',
+      'Okay'
+    );
 
-      return result;
-    } catch (error) {
-      const statusErr = error.response.status;
-
-      if (statusErr === 400) {
-        Notiflix.Notify.failure('Bad request. try again later');
-      }
-      if (statusErr === 403) {
-        Notiflix.Notify.failure(`${error.response.data.message}`);
-      }
-      return rejectWithValue(error.message);
-    }
+    return data.token;
   }
 );
 

@@ -1,6 +1,9 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
+import { logInGoogle } from '../../redux/auth/auth-operations';
+import Header from '../../components/Header/Header';
 import Balance from 'components/Balance/Balance';
 import Calendar from 'components/Calendar/Calendar';
 import Accordion from 'components/Accordion/Accordion';
@@ -15,18 +18,29 @@ import s from './HomePage.module.scss';
 
 const HomePage = ({ startDate, setStartDate }) => {
   const [isOpenModal, setIsOpenModal] = useState(false);
+
+  const [searchParams] = useSearchParams();
+  const dispatch = useDispatch();
+  const token = searchParams.get('token');
+  const email = searchParams.get('email');
+
   const mediaSize = useResizeScreen();
   const { isMobile } = mediaSize;
+
+  useEffect(() => {
+    if (token) {
+      dispatch(logInGoogle({ email, token }));
+    }
+  }, [token, email, dispatch]);
 
   const onClickToggleModal = () => {
     setIsOpenModal(!isOpenModal);
   };
 
-  // console.log(startDate);
-
   if (isMobile) {
     return (
       <>
+        <Header />
         <div className={s.background}>
           <div className="container">
             <div className={s.wrapper}>
@@ -56,7 +70,6 @@ const HomePage = ({ startDate, setStartDate }) => {
             Income
           </button>
         </div>
-
         {isOpenModal && (
           <Modal close={onClickToggleModal}>
             <Product />
@@ -68,6 +81,7 @@ const HomePage = ({ startDate, setStartDate }) => {
 
   return (
     <>
+      <Header />
       <div className={s.background}>
         <div className={s.HomeContainer}>
           <Balance />

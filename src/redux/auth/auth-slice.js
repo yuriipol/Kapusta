@@ -9,7 +9,6 @@ import {
 
 const initialState = {
   token: '',
-  isLogin: false,
   isLoading: false,
   error: null,
 };
@@ -27,11 +26,9 @@ export const authSlice = createSlice({
     [registerUser.fulfilled]: state => {
       state.token = 'no token';
       state.isLoading = false;
-      state.isLogin = false;
     },
     [registerUser.rejected]: (state, { payload }) => {
       state.token = 'error token';
-      state.isLogin = false;
       state.isLoading = false;
       state.error = payload;
     },
@@ -43,25 +40,21 @@ export const authSlice = createSlice({
     [logInUser.fulfilled]: (state, { payload }) => {
       state.token = payload.token;
       state.isLoading = false;
-      state.isLogin = true;
     },
     [logInUser.rejected]: (state, { payload }) => {
-      state.isLogin = false;
       state.isLoading = false;
       state.error = payload;
     },
     [logInGoogle.pending]: state => {
-      state.token = '';
+      state.token = 'goodle registration';
       state.isLoading = true;
       state.error = null;
     },
     [logInGoogle.fulfilled]: (state, { payload }) => {
-      state.token = payload.token;
+      state.token = payload;
       state.isLoading = false;
-      state.isLogin = true;
     },
     [logInGoogle.rejected]: (state, { payload }) => {
-      state.isLogin = false;
       state.isLoading = false;
       state.error = payload;
     },
@@ -72,10 +65,8 @@ export const authSlice = createSlice({
     [logoutUser.fulfilled]: (state, { payload }) => {
       state.token = '';
       state.isLoading = false;
-      state.isLogin = false;
     },
     [logoutUser.rejected]: (state, { payload }) => {
-      state.isLogin = false;
       state.isLoading = false;
       state.error = payload;
     },
