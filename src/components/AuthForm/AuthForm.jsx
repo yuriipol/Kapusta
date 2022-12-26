@@ -3,10 +3,9 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-// import { getUserByID } from '../../shared/api/auth-api';
 import GoogleLogo from '../../shared/images/auth/google-symbol_lg.svg';
-import { registerUser, logInGoogle } from '../../redux/auth/auth-operations';
-// import { googleLogin, googleGetData } from '../../shared/api/auth-api';
+import { registerUser } from '../../redux/auth/auth-operations';
+
 import s from './AuthForm.module.scss';
 
 const AuthForm = ({ onSubmit }) => {
@@ -25,7 +24,6 @@ const AuthForm = ({ onSubmit }) => {
   }
 
   function onRegistration(event) {
-    // event.preventDefault();
     const data = { email, password };
     dispatch(registerUser(data));
   }
@@ -44,39 +42,13 @@ const AuthForm = ({ onSubmit }) => {
     }
   }
 
-  const redirectOnGoogle = async () => {
-    // const googleLoginURL =
-    //   'http://localhost:4040/api/auth/users/google/callback';
-
-    dispatch(logInGoogle());
-    navigate('/home');
-    // getUserByID('63a05859961d277fdaba972a');
-
-    // const newWindow = window.open(
-    //   googleLoginURL,
-    //   '_blank',
-    //   'width=500,height=600'
-    // );
-    // // getUserByID('63a05859961d277fdaba972a');
-    // if (newWindow) {
-    //   setTimeout(() => {
-    //     // navigate('/home');
-    //     newWindow.close();
-    //   }, 3000);
-    // }
-  };
-
   return (
     <>
       <form className={s.form} onSubmit={handleSubmit}>
         <p className={s.textUp}> You can log in with your Google Account:</p>
 
         <a
-          // type="button"
-          onClick={redirectOnGoogle}
           href="http://localhost:4040/api/auth/users/google/callback"
-          rel="noopener noreferrer"
-          target="_blank"
           className={s.link}
         >
           <img className={s.googleIcon} src={GoogleLogo} alt="Google Logo" />
@@ -94,7 +66,7 @@ const AuthForm = ({ onSubmit }) => {
             name="email"
             value={email}
             id="email"
-            title="The email must contain ???"
+            // title="The email must contain ???"
             // title="The email must contain only Latin lowercase letters, @ and  a dot without spacesю  For example - butterfly@mail.com"
             onChange={handleChange}
           />
@@ -111,7 +83,7 @@ const AuthForm = ({ onSubmit }) => {
             name="password"
             value={password}
             id="password"
-            title="The password cannot be less than 8 characters ????"
+            // title="The password cannot be less than 8 characters ????"
             // title="The password cannot be less than 8 characters and must contain at least one number, one lowercase, and one uppercase Latin letter. For example - Butterfly01"
             onChange={handleChange}
           />
@@ -125,7 +97,6 @@ const AuthForm = ({ onSubmit }) => {
             type="submit"
             className={s.btn}
             onClick={() => navigate('/home')}
-            // onClick={handleSubmit}
           >
             log in
           </button>
@@ -141,6 +112,5 @@ const AuthForm = ({ onSubmit }) => {
 export default AuthForm;
 
 AuthForm.propTypes = {
-  // onSubmit: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func,
+  onSubmit: PropTypes.func.isRequired,
 };
