@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { ReactComponent as VectorLeft } from '../../shared/images/ReportsImages/VectorLeft.svg';
 import { ReactComponent as VectorRight } from '../../shared/images/ReportsImages/VectorRight.svg';
 
@@ -11,19 +13,17 @@ const DateResults = ({ dateValue, setDateValue }) => {
     const takeMonths = dateValue.getMonth()
     const takeYears = dateValue.getFullYear()
 
-    const decrementMonth = () => {
 
+    const decrementMonth = () => {
         const newMonth = new Date(dateValue.getFullYear(), dateValue.getMonth() - 1)
         setDateValue(newMonth)
-        console.log(newMonth);
     }
 
     const incrementMonth = () => {
         const newMonth = new Date(dateValue.getFullYear(), dateValue.getMonth() + 1)
-
         setDateValue(newMonth)
-        console.log(newMonth);
     }
+
     return (
         <div className={s.currentPeriod}>
             <p className={s.currentPeriodText}>Current period:</p>
@@ -38,6 +38,11 @@ const DateResults = ({ dateValue, setDateValue }) => {
             </div>
         </div>
     );
+}
+
+DateResults.propTypes = {
+    dateValue: PropTypes.instanceOf(Date).isRequired,
+    setDateValue: PropTypes.func.isRequired
 }
 
 export default DateResults;

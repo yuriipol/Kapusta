@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-
 import {
   ResponsiveContainer,
   BarChart,
@@ -13,12 +12,20 @@ import {
   Cell,
 } from 'recharts';
 
+import ChartsMobileWarning from './ChartsMobileWarning';
+
+import { initialChartsArr } from 'pages/ReportsPage/initialState';
+
 import useResizeScreen from 'shared/hooks/useResizeScreen';
 
 import s from './Charts.module.scss';
 
 const Charts = ({ chartdata: data }) => {
   const { isMobile } = useResizeScreen();
+
+  if (isMobile && data === initialChartsArr) {
+    return <ChartsMobileWarning dataDesc={data} />
+  }
 
   const renderCustomizedLabelName = props => {
     const { x, y, value } = props;
@@ -59,6 +66,7 @@ const Charts = ({ chartdata: data }) => {
       </g>
     );
   };
+
   const renderCustomizedAxisTick = props => {
     const { x, y, payload } = props;
     if (isMobile) {
@@ -84,7 +92,7 @@ const Charts = ({ chartdata: data }) => {
   if (isMobile) {
     return (
       <ResponsiveContainer maxWidth="100%" height={resizeHights}>
-        <BarChart data={data} layout="vertical" maxBarSize={18}>
+        <BarChart data={data} layout="vertical" maxBarSize={18} >
           <XAxis type="number" hide axisLine={false} tickLine={false} />
           <YAxis
             hide
@@ -121,12 +129,13 @@ const Charts = ({ chartdata: data }) => {
   }
   return (
     <ResponsiveContainer width="100%" height="100%">
-      <BarChart data={data}>
+      <BarChart data={data} margin={{ top: 40, right: 5, bottom: 5, left: 5 }}>
         <CartesianGrid
+
           vertical={false}
           stroke="#F5F6FB"
-          horizontalPoints={[]}
-          y={38}
+
+
         />
         <XAxis
           tick={renderCustomizedAxisTick}
@@ -162,7 +171,6 @@ Charts.propTypes = {
     name: PropTypes.string.isRequired,
     price: PropTypes.string.isRequired,
   }))
-
 }
 
 export default Charts;
