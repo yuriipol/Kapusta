@@ -1,5 +1,5 @@
-
-import { useState } from "react"
+import PropTypes from 'prop-types';
+import { useState, useEffect } from "react"
 import { useNavigate } from "../../../node_modules/react-router-dom/dist/index";
 
 import { ReactComponent as Back } from '../../shared/images/ReportsImages/back.svg';
@@ -8,66 +8,45 @@ import Balance from "components/Balance/Balance";
 import DateResults from "components/DateResults/DateResults";
 import BudgetResults from "components/BudgetResults/BudgetResults";
 import CategoryResults from "components/CategoryResults/CategoryResults";
-
 import Charts from "components/Charts/Charts";
 
+import { periodDate } from "shared/api/transactions-api";
+
 import useResizeScreen from "shared/hooks/useResizeScreen";
+import reworkData from "shared/helpers/reworkDataAtFetch";
+
+import { initialChartsArr } from "./initialState";
 
 import s from './ReportsPage.module.scss';
 
-const data = [
-  {
-    name: 'Pork',
-    price: 5000,
-  },
-  {
-    name: 'Beef',
-    price: 4500,
-  },
-  {
-    name: 'Chiken',
-    price: 3200,
-  },
-  {
-    name: 'Fish',
-    price: 2100,
-  },
-  {
-    name: 'Panini',
-    price: 1800,
-  },
-  {
-    name: 'Coffee',
-    price: 1700,
-  },
-  {
-    name: 'Spaghetti',
-    price: 1500,
-  },
-  {
-    name: 'Chocolate',
-    price: 800,
-  },
-  {
-    name: 'Olives',
-    price: 500,
-  },
-  {
-    name: 'Greens',
-    price: 300,
-  },
-];
-
 const ReportsPage = ({ startDate }) => {
-  const [monthsReports, setMonthsReports] = useState(new Date(startDate))
+  const [monthsDateReports, setmonthsDateReports] = useState(new Date(startDate))
+  const [dataMonths, setDataMonths] = useState({})
+  const [dataChatrs, setDataCharts] = useState(initialChartsArr)
   const navigate = useNavigate()
-
   const { isMobile, isDesctop } = useResizeScreen()
+
+  const date = `${monthsDateReports.getFullYear()}-${monthsDateReports.getMonth() + 1}`
+
+  useEffect(() => {
+    const fetchData = async (date) => {
+      const result = await periodDate(date)
+      const newDada = reworkData(result)
+      setDataMonths(newDada)
+    }
+
+    fetchData(date)
+  }, [date])
+
+  const dataCharts = (descr) => {
+    setDataCharts(descr)
+  }
+
 
   return (
     <div className={s.reportsContainer}>
-      <div className={s.reportsNav}>
 
+      <div className={s.reportsNav}>
         {!isMobile && <button type="button" className={s.buttonBack} onClick={() => navigate('/home')}>
           <Back className={s.buttonBackArrow} />
           {!isMobile && 'Main page'}
@@ -78,25 +57,29 @@ const ReportsPage = ({ startDate }) => {
             <p className={s.balance_text}>Balance:</p><p className={s.balance_amount}>55 000.00 UAH</p>
           </div>}
 
-        <DateResults dateValue={monthsReports} setDateValue={setMonthsReports} />
+        <DateResults dateValue={monthsDateReports} setDateValue={setmonthsDateReports} />
 
-        {isMobile && <button type="button" className={s.buttonBack}>
+        {isMobile && <button type="button" className={s.buttonBack} onClick={() => navigate('/home')}>
           <Back className={s.buttonBackArrow} />
           {!isMobile && 'Main page'}
         </button>}
-
       </div>
 
-      <BudgetResults />
+      <BudgetResults data={dataMonths} />
 
-      <CategoryResults />
+      <CategoryResults data={dataMonths} typeFunc={dataCharts} />
 
-      {isMobile ? <Charts chartdata={data} /> : <div className={s.budget_chart_box}>
-        <Charts chartdata={data} />
+
+      {isMobile ? <Charts chartdata={dataChatrs} /> : <div className={s.budget_chart_box}>
+        <Charts chartdata={dataChatrs} />
       </div>}
 
     </div>
   );
 };
+
+ReportsPage.propTypes = {
+  startDate: PropTypes.instanceOf(Date),
+}
 
 export default ReportsPage;
