@@ -2,8 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { userInfoOperation, updateUsersBalance } from './user-operations';
 
 const initialState = {
-  balance: null,
-  userInfo: {},
+  userInfo: { email: '', avatarURL: '', balance: 0 },
   isLogin: false,
   isLoading: false,
   error: null,
@@ -14,7 +13,6 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     clearUser: state => {
-      state.balance = null;
       state.userInfo = {};
       state.isLoading = false;
       state.isLogin = false;
@@ -27,7 +25,6 @@ export const userSlice = createSlice({
       state.error = null;
     },
     [userInfoOperation.fulfilled]: (state, { payload }) => {
-      state.balance = payload;
       state.userInfo = payload;
       state.isLogin = true;
       state.isLoading = false;
@@ -41,7 +38,7 @@ export const userSlice = createSlice({
       state.error = null;
     },
     [updateUsersBalance.fulfilled]: (state, { payload }) => {
-      state.balance = payload;
+      state.userInfo.balance = payload;
       state.isLoading = false;
     },
     [updateUsersBalance.rejected]: (state, { payload }) => {

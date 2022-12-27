@@ -13,18 +13,18 @@ import { ReactComponent as AddIncome } from '../../shared/images/ReportsImages/i
 import { ReactComponent as Salary } from '../../shared/images/ReportsImages/incomeType/salary.svg';
 
 const svgArray = [
-  { category: 'PRODUCTS', svg: Product },
-  { category: 'TRANSPORT', svg: Transport },
-  { category: 'ENTERTAINMENT', svg: Entertaiment },
-  { category: 'ALCOHOL', svg: Alcohol },
-  { category: 'HEALTH', svg: Health },
-  { category: 'HOUSING', svg: Housing },
-  { category: 'TECHNIQUE', svg: Technique },
-  { category: 'COMMUNAL, COMMUNICATION', svg: Communal },
-  { category: 'SPORTS, HOBBIES', svg: Hobbies },
-  { category: 'EDUCATION', svg: Education },
-  { category: 'SALARY', svg: Salary },
-  { category: 'ADD. INCOME', svg: AddIncome },
-  { category: 'OTHER', svg: Other },
+  { category: 'Products', svg: Product },
+  { category: 'Transport', svg: Transport },
+  { category: 'Entertainment', svg: Entertaiment },
+  { category: 'Alcohol', svg: Alcohol },
+  { category: 'Health', svg: Health },
+  { category: 'Housing', svg: Housing },
+  { category: 'Technique', svg: Technique },
+  { category: 'Communal, Communication', svg: Communal },
+  { category: 'Sports, Hobbies', svg: Hobbies },
+  { category: 'Education', svg: Education },
+  { category: 'Salary', svg: Salary },
+  { category: 'Add. Income', svg: AddIncome },
+  { category: 'Other', svg: Other },
 ];
 export default svgArray;

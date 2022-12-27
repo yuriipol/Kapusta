@@ -6,7 +6,7 @@ export const userInfoOperation = createAsyncThunk(
   async (_, { rejectWithValue, getState }) => {
     const state = getState();
     const token = state.auth.token;
-    console.log(token);
+
     if (!token) {
       return rejectWithValue(`token is invalid`);
     }
