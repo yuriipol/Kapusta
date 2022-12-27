@@ -8,6 +8,8 @@ import { registerUser } from '../../redux/auth/auth-operations';
 
 import s from './AuthForm.module.scss';
 
+const baseURL = 'http://localhost:4040/';
+
 const AuthForm = ({ onSubmit }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -48,10 +50,7 @@ const AuthForm = ({ onSubmit }) => {
       <form className={s.form} onSubmit={handleSubmit}>
         <p className={s.textUp}> You can log in with your Google Account:</p>
 
-        <a
-          href="http://localhost:4040/api/auth/users/google/callback"
-          className={s.link}
-        >
+        <a href={`${baseURL}api/auth/users/google/login`} className={s.link}>
           <img className={s.googleIcon} src={GoogleLogo} alt="Google Logo" />
           Google
         </a>

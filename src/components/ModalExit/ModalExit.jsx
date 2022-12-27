@@ -11,8 +11,10 @@ const ModalExit = ({ close }) => {
 
   const logOut = () => {
     dispatch(logoutUser());
+
     dispatch(clearUser());
     navigate('/')
+
     close();
   };
 
@@ -28,7 +30,9 @@ const ModalExit = ({ close }) => {
         <p className={s.text}>Do you really want to leave?</p>
         <button
           className={s.buttonYes}
-          onClick={() => { logOut() }}
+          onClick={() => {
+            logOut();
+          }}
         >
           Yes
         </button>
