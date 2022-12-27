@@ -20,8 +20,8 @@ const BudgetResults = ({ data }) => {
 
 BudgetResults.propTypes = {
     data: PropTypes.objectOf(PropTypes.shape({
-        expense: PropTypes.object.isRequired,
-        incomes: PropTypes.object.isRequired,
+        expense: PropTypes.object,
+        incomes: PropTypes.object,
     }))
 
 }

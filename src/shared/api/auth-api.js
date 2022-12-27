@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const instance = axios.create({
-  baseURL: 'http://localhost:4040/',
+  baseURL: 'https://kapusta-backend.onrender.com/',
 });
 
 export const setToken = async (token = '') => {
@@ -27,9 +27,10 @@ export const logout = async () => {
   return result;
 };
 
-export const userInfo = async data => {
-  setToken(data);
-  const { data: result } = await instance.get('/users');
+export const userInfo = async token => {
+  setToken(token);
+  console.log(token);
+  const { data: result } = await instance.get('/api/auth/users/current');
 
   return result;
 };

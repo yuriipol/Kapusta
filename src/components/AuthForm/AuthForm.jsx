@@ -23,6 +23,7 @@ const AuthForm = ({ onSubmit }) => {
     onSubmit(data);
     setEmail('');
     setPassword('');
+    navigate('/home')
   }
 
   function onRegistration(event) {
@@ -95,7 +96,6 @@ const AuthForm = ({ onSubmit }) => {
           <button
             type="submit"
             className={s.btn}
-            onClick={() => navigate('/home')}
           >
             log in
           </button>
