@@ -13,19 +13,54 @@ import TableForMobile from '../../components/Table/TableForMobile';
 
 import useResizeScreen from 'shared/hooks/useResizeScreen';
 
+import { trasactionIncome, trasactionExpense, trasactionAll } from 'shared/api/transactions-api';
+
 import Chart from '../../shared/images/HomePage/chart.svg';
 import s from './HomePage.module.scss';
 
 const HomePage = ({ startDate, setStartDate }) => {
   const [isOpenModal, setIsOpenModal] = useState(false);
-
   const [searchParams] = useSearchParams();
   const dispatch = useDispatch();
+
   const token = searchParams.get('token');
   const email = searchParams.get('email');
 
-  const mediaSize = useResizeScreen();
-  const { isMobile } = mediaSize;
+  const { isMobile } = useResizeScreen();
+
+  const [isExpense, setIsExpense] = useState(true);
+  const [dataIncome, setDataIncome] = useState({})
+  const [dataExpense, setDataExpense] = useState({})
+  const [dataAllTransaction, setDataAllTransaction] = useState([])
+  const changeBudgetype = isExpense ? "Expense" : 'Income'
+
+  const toggleIsExpanse = () => {
+    setIsExpense(!isExpense)
+  }
+
+  useEffect(() => {
+    // запит за даними
+    try {
+      const transactionGetFeth = async () => {
+        if (isMobile) {
+          const resultAllTrans = await trasactionAll()
+          setDataAllTransaction(resultAllTrans.allTransactions)
+        }
+
+        if (isExpense) {
+          const resultExpense = await trasactionExpense()
+          setDataExpense(resultExpense)
+        } else {
+          const resultIncome = await trasactionIncome()
+          setDataIncome(resultIncome)
+        }
+      }
+
+      transactionGetFeth()
+    } catch (error) {
+      console.log(error.message);
+    }
+  }, [isExpense, isMobile]);
 
   useEffect(() => {
     if (token) {
@@ -35,7 +70,15 @@ const HomePage = ({ startDate, setStartDate }) => {
 
   const onClickToggleModal = () => {
     setIsOpenModal(!isOpenModal);
+    toggleIsExpanse()
   };
+
+
+
+  const props = { isExpense, dataIncome, dataExpense, dataAllTransaction, changeBudgetype, toggleIsExpanse }
+
+
+
 
   if (isMobile) {
     return (
@@ -53,7 +96,7 @@ const HomePage = ({ startDate, setStartDate }) => {
             <Calendar startDate={startDate} setStartDate={setStartDate} />
           </div>
         </div>
-        <TableForMobile />
+        <TableForMobile props={props} />
         <div className={s.btn}>
           <button
             className={s.button}
@@ -92,7 +135,7 @@ const HomePage = ({ startDate, setStartDate }) => {
             <img className={s.chart} src={Chart} alt="Chart" />
           </div>
         </div>
-        <Accordion startDate={startDate} setStartDate={setStartDate} />
+        <Accordion startDate={startDate} setStartDate={setStartDate} props={props} />
       </div>
       <div className={s.kapusta}></div>
     </>

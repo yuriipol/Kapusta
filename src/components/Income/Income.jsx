@@ -6,8 +6,9 @@ import s from './Income.module.scss';
 import ProductTablet from 'components/Product/ProductTablet';
 import useResizeScreen from '../../shared/hooks/useResizeScreen';
 
-const Income = ({ startDate, setStartDate }) => {
+const Income = ({ startDate, setStartDate, budgetType, transactionList }) => {
   const { isTablet } = useResizeScreen();
+
 
   if (isTablet) {
     return (
@@ -22,10 +23,10 @@ const Income = ({ startDate, setStartDate }) => {
             <button className={s.btn}>Clear</button>
           </div>
           <div className={s.test}>
-            <Table />
+            <Table transactionList={transactionList} budgetType={budgetType} />
           </div>
         </div>
-        <Summary />
+        <Summary transactionList={transactionList} />
       </>
     );
   }
@@ -39,8 +40,8 @@ const Income = ({ startDate, setStartDate }) => {
       </div>
       <div className={s.secondSection_Wrapper}></div>
       <div className={s.tabSumWrapper}>
-        <Table />
-        <Summary />
+        <Table transactionList={transactionList} budgetType={budgetType} />
+        <Summary transactionList={transactionList} />
       </div>
     </div>
   );

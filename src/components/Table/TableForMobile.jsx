@@ -1,54 +1,31 @@
-// TableForMobile.jsx;
+
 import Basket from '../../shared/images/HomePage/delete.svg';
 import s from './Table.module.scss';
 
-// const data видалити, коли будуть дані
-const data = [
-  {
-    data: '05.09.2019',
-    description: 'My salary',
-    category: 'Salary',
-    sum: '20000.00',
-    id: '1',
-  },
-  {
-    data: '05.09.2019',
-    description: 'Bananas',
-    category: 'Products',
-    sum: '-50.00',
-    id: '2',
-  },
-  {
-    data: '05.09.2019',
-    description: 'Undeground',
-    category: 'Transport',
-    sum: '-2000.00',
-    id: '3',
-  },
-];
-const difClass = suma => {
-  const result = suma >= 0 ? 's.incom' : 's.outcom';
-  return result;
-};
 
-const TableForMobile = () => {
-  console.log(difClass(1000));
-  const rows = data.map(({ data, description, category, sum, id }) => {
-    const suma = Number.parseFloat(sum);
+
+const TableForMobile = ({ props }) => {
+  const { dataAllTransaction } = props
+
+  const rows = dataAllTransaction?.map(({ date, description, category, amount, _id, type }) => {
 
     return (
-      <tr key={id} className={s.tRow}>
+      <tr key={_id} className={s.tRow}>
         <td className={s.tD_descr}>
           {description}
           <div>
-            <span className={s.tD_data}>{data}</span>
+            <span className={s.tD_data}>{date}</span>
             <span className={s.tD_categ}>{category}</span>
           </div>
         </td>
 
-        <td className={`${suma >= 0 ? s.incom : s.outcom}`}>
-          {sum}
-          <span className={`${suma >= 0 ? s.incom : s.outcom}`}>UAH.</span>
+        <td className={type === 'expense' ? s.outcom : s.incom}>
+          {type === 'expense' ? `- ${amount.toFixed(2)
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}` : amount.toFixed(2)
+              .toString()
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}{' '}
+          <span className={type === 'expense' ? s.outcom : s.incom}>UAH.</span>
         </td>
         <td className={s.tD_bask}>
           <button type="button" className={s.helper}>

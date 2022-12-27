@@ -11,7 +11,8 @@
   text-transform: uppercase;
 
   color: $color-primary;
-  background: #fefefe;
+  background: #fafbfd;
+
   border-radius: 15px 15px 0px 0px;
   &:hover,
   &:focus {
@@ -21,9 +22,9 @@
   }
 }
 
-.income {
-  composes: expenses;
-  background: #fafbfd;
+.active {
+  color: $color-accent;
+  background: #fefefe;
 }
 
 .wrapper {

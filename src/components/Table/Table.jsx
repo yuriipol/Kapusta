@@ -2,222 +2,31 @@
 import Basket from '../../shared/images/HomePage/delete.svg';
 import s from './Table.module.scss';
 
-// !!!!!const data видалити, коли будуть дані
-const data = [
-  {
-    data: '05.09.2019',
-    description: 'My salary',
-    category: 'Salary',
-    sum: '20000.00',
-    id: '1',
-  },
-  {
-    data: '05.09.2019',
-    description: 'Bananas',
-    category: 'Products',
-    sum: '-50.00',
-    id: '2',
-  },
-  {
-    data: '05.09.2019',
-    description: 'Undeground',
-    category: 'Transport',
-    sum: '-2000.00',
-    id: '3',
-  },
-  // {
-  //   data: '05.09.2019',
-  //   description: 'My salary',
-  //   category: 'Salary',
-  //   sum: '20000.00',
-  //   id: '1',
-  // },
-  // {
-  //   data: '05.09.2019',
-  //   description: 'Bananas',
-  //   category: 'Products',
-  //   sum: '-50.00',
-  //   id: '2',
-  // },
-  // {
-  //   data: '05.09.2019',
-  //   description: 'Undeground',
-  //   category: 'Transport',
-  //   sum: '-2000.00',
-  //   id: '3',
-  // },
-  // {
-  //   data: '05.09.2019',
-  //   description: 'My salary',
-  //   category: 'Salary',
-  //   sum: '20000.00',
-  //   id: '1',
-  // },
-  // {
-  //   data: '05.09.2019',
-  //   description: 'Bananas',
-  //   category: 'Products',
-  //   sum: '-50.00',
-  //   id: '2',
-  // },
-  // {
-  //   data: '05.09.2019',
-  //   description: 'Undeground',
-  //   category: 'Transport',
-  //   sum: '-2000.00',
-  //   id: '3',
-  // },
-  // {
-  //   data: '05.09.2019',
-  //   description: 'My salary',
-  //   category: 'Salary',
-  //   sum: '20000.00',
-  //   id: '1',
-  // },
-  // {
-  //   data: '05.09.2019',
-  //   description: 'Bananas',
-  //   category: 'Products',
-  //   sum: '-50.00',
-  //   id: '2',
-  // },
-  // {
-  //   data: '05.09.2019',
-  //   description: 'Undeground',
-  //   category: 'Transport',
-  //   sum: '-2000.00',
-  //   id: '3',
-  // },
-  // {
-  //   data: '05.09.2019',
-  //   description: 'My salary',
-  //   category: 'Salary',
-  //   sum: '20000.00',
-  //   id: '1',
-  // },
-  // {
-  //   data: '05.09.2019',
-  //   description: 'Bananas',
-  //   category: 'Products',
-  //   sum: '-50.00',
-  //   id: '2',
-  // },
-  // {
-  //   data: '05.09.2019',
-  //   description: 'Undeground',
-  //   category: 'Transport',
-  //   sum: '-2000.00',
-  //   id: '3',
-  // },
-  // {
-  //   data: '05.09.2019',
-  //   description: 'My salary',
-  //   category: 'Salary',
-  //   sum: '20000.00',
-  //   id: '1',
-  // },
-  // {
-  //   data: '05.09.2019',
-  //   description: 'Bananas',
-  //   category: 'Products',
-  //   sum: '-50.00',
-  //   id: '2',
-  // },
-  // {
-  //   data: '05.09.2019',
-  //   description: 'Undeground',
-  //   category: 'Transport',
-  //   sum: '-2000.00',
-  //   id: '3',
-  // },
-  // {
-  //   data: '05.09.2019',
-  //   description: 'My salary',
-  //   category: 'Salary',
-  //   sum: '20000.00',
-  //   id: '1',
-  // },
-  // {
-  //   data: '05.09.2019',
-  //   description: 'Bananas',
-  //   category: 'Products',
-  //   sum: '-50.00',
-  //   id: '2',
-  // },
-  // {
-  //   data: '05.09.2019',
-  //   description: 'Undeground',
-  //   category: 'Transport',
-  //   sum: '-2000.00',
-  //   id: '3',
-  // },
-  // {
-  //   data: '05.09.2019',
-  //   description: 'My salary',
-  //   category: 'Salary',
-  //   sum: '20000.00',
-  //   id: '1',
-  // },
-  // {
-  //   data: '05.09.2019',
-  //   description: 'Bananas',
-  //   category: 'Products',
-  //   sum: '-50.00',
-  //   id: '2',
-  // },
-  // {
-  //   data: '05.09.2019',
-  //   description: 'Undeground',
-  //   category: 'Transport',
-  //   sum: '-2000.00',
-  //   id: '3',
-  // },
-  // {
-  //   data: '05.09.2019',
-  //   description: 'My salary',
-  //   category: 'Salary',
-  //   sum: '20000.00',
-  //   id: '1',
-  // },
-  // {
-  //   data: '05.09.2019',
-  //   description: 'Bananas',
-  //   category: 'Products',
-  //   sum: '-50.00',
-  //   id: '2',
-  // },
-  // {
-  //   data: '05.09.2019',
-  //   description: 'Undeground',
-  //   category: 'Transport',
-  //   sum: '-2000.00',
-  //   id: '3',
-  // },
-];
-// const difClass = suma => {
-//   const result = suma >= 0 ? 's.incom' : 's.outcom';
-//   return result;
-// };
 
-const Table = () => {
-  const rows = data.map(({ data, description, category, sum, id }) => {
-    const suma = Number.parseFloat(sum);
+const Table = ({ transactionList, budgetType }) => {
+  const checkType = budgetType === "Expense"
+  const dataTransaction = checkType ? transactionList?.expense : transactionList?.incomes
 
+  const rows = dataTransaction?.map(({ date, description, category, amount, _id }) => {
     return (
-      <tr key={id} className={s.tRow}>
-        <td className={s.tD_data}>{data}</td>
+      <tr key={_id} className={s.tRow}>
+        <td className={s.tD_data}>{date}</td>
         <td className={s.tD_descr}>{description}</td>
         <td className={s.tD_categ}>{category}</td>
-        <td className={`${suma >= 0 ? s.incom : s.outcom}`}>
-          {sum}{' '}
-          <span className={`${suma >= 0 ? s.incom : s.outcom}`}>UAH.</span>
+        <td className={checkType ? s.outcom : s.incom}>
+          {checkType ? `- ${amount.toFixed(2)
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}` : amount.toFixed(2)
+              .toString()
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}{' '}
+          <span className={checkType ? s.outcom : s.incom}>UAH.</span>
         </td>
         <td className={s.tD_bask}>
           <button type="button" className={s.helper}>
             <img className={s.basket} src={Basket} alt="basket" />
           </button>
         </td>
-      </tr>
+      </tr >
     );
   });
   return (

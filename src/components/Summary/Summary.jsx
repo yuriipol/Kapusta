@@ -1,44 +1,19 @@
 import s from './Summary.module.scss';
 
-const data = [
-  {
-    month: 'December',
-    sum: '10000.00',
-    id: '1',
-  },
-  {
-    month: 'November',
-    sum: '30000.00',
-    id: '2',
-  },
-  {
-    month: 'October',
-    sum: '30000.00',
-    id: '3',
-  },
-  {
-    month: 'September',
-    sum: '20000.00',
-    id: '4',
-  },
-  {
-    month: 'Augest',
-    sum: '15000.00',
-    id: '5',
-  },
-  {
-    month: 'July',
-    sum: '18000.00',
-    id: '6',
-  },
-];
+const Summary = ({ transactionList }) => {
+  console.log(transactionList)
+  const trasactionSummary = transactionList?.monthStats
 
-const Summary = () => {
-  const rows = data.map(({ month, sum, id }) => {
+  const reworkSummary = trasactionSummary ? Object.entries(trasactionSummary) : []
+  const fiterArr = reworkSummary.filter(el => el[1] !== 'N/A')
+  const rows = fiterArr?.map((el) => {
+
     return (
-      <tr key={id} className={s.row}>
-        <td className={s.desc}>{month}</td>
-        <td className={s.desc}>{sum}</td>
+      <tr className={s.row}>
+        <td className={s.desc}>{el[0]}</td>
+        <td className={s.desc}>{el[1] === 'N/A' ? '00.00' : el[1].toFixed(2)
+          .toString()
+          .replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}</td>
       </tr>
     );
   });

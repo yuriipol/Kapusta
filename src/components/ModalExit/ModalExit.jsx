@@ -11,9 +11,8 @@ const ModalExit = ({ close }) => {
 
   const logOut = () => {
     dispatch(logoutUser());
-    // dispatch(clearUser());
+    dispatch(clearUser());
     navigate('/')
-    // localStorage.removeItem('persist:auth');
     close();
   };
 
