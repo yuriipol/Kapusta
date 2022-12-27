@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { logoutUser } from 'redux/auth/auth-operations';
-// import { clearUser } from '../../redux/user/user-slice';
+import { clearUser } from '../../redux/user/user-slice';
 
 import s from './ModalExit.module.scss';
 
@@ -11,9 +11,10 @@ const ModalExit = ({ close }) => {
 
   const logOut = () => {
     dispatch(logoutUser());
-    // dispatch(clearUser());
-    navigate('/');
-    // localStorage.removeItem('persist:auth');
+
+    dispatch(clearUser());
+    navigate('/')
+
     close();
   };
 

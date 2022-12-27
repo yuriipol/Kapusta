@@ -22,7 +22,7 @@
 .firstSection_Wrapper {
   @include media-query(tablet-only) {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     margin: 4px 0 32px 0;
   }

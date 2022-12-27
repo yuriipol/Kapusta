@@ -1,41 +1,31 @@
-import { useState, useEffect } from 'react';
-// import Calendar from 'components/Calendar/Calendar';
-// import Product from 'components/Product/Product';
 import Income from '../Income/Income';
 
 import s from './Accordion.module.scss';
 
-const Accordion = ({ startDate, setStartDate }) => {
-  const [isShow, setIsShow] = useState('product');
-
-  useEffect(() => {
-    // запит за даними
-  }, [isShow]);
+const Accordion = ({ startDate, setStartDate, props }) => {
+  const { isExpense, dataIncome, setDataIncome, dataExpense, setDataExpense, changeBudgetype, toggleIsExpanse, categoryIncomeList, categoryExpensesList } = props
 
   return (
     <div className={s.expenses_income_wrapper}>
       <div className={s.buttons_wrapper}>
         <button
-          className={s.expenses}
+          className={isExpense ? `${s.expenses} ${s.active}` : s.expenses}
           type="button"
-          onClick={() => setIsShow(true)}
+          onClick={() => toggleIsExpanse()}
         >
           Expenses
         </button>
         <button
-          className={s.income}
+          className={!isExpense ? `${s.expenses} ${s.active}` : s.expenses}
           type="button"
-          onClick={() => setIsShow(false)}
+          onClick={() => toggleIsExpanse()}
         >
           Income
         </button>
       </div>
 
-      {isShow ? (
-        <Income startDate={startDate} setStartDate={setStartDate} />
-      ) : (
-        <Income startDate={startDate} setStartDate={setStartDate} />
-      )}
+      <Income startDate={startDate} setStartDate={setStartDate} budgetType={changeBudgetype} transactionList={isExpense ? dataExpense : dataIncome} setDataIncome={setDataIncome} setDataExpense={setDataExpense} categoryIncomeList={categoryIncomeList} categoryExpensesList={categoryExpensesList} />
+
     </div>
   );
 };
