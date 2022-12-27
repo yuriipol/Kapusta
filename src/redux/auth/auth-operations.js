@@ -86,10 +86,11 @@ export const logInGoogle = createAsyncThunk(
     setToken(data.token);
     const [name] = data.email.split('@');
     Notiflix.Report.success(
-      `${name} google registration was successful`,
-      '',
+      `${name} `,
+      'google registration was successful',
       'Okay'
     );
+    dispatch(userInfoOperation(data.token));
 
     return data.token;
   }
