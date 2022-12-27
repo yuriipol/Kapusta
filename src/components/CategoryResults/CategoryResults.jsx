@@ -37,8 +37,8 @@ const CategoryResults = ({ data, typeFunc }) => {
 
 CategoryResults.propTypes = {
     data: PropTypes.objectOf(PropTypes.shape({
-        expense: PropTypes.object.isRequired,
-        incomes: PropTypes.object.isRequired,
+        expense: PropTypes.object,
+        incomes: PropTypes.object,
     })),
     typeFunc: PropTypes.func.isRequired
 }

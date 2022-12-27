@@ -3,7 +3,7 @@
 .budget {
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   padding: 20px 10px;
 
   margin-bottom: 32px;
@@ -36,13 +36,6 @@
   font-size: 14px;
   line-height: 1.14;
   color: $color-secondary;
-
-  &:not(:last-child) {
-    margin-right: 20px;
-    @include media-query(tablet) {
-      margin-right: 40px;
-    }
-  }
 
   @include media-query(mobile-only) {
     display: flex;

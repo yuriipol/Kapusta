@@ -11,7 +11,8 @@ const ModalExit = ({ close }) => {
 
   const logOut = () => {
     dispatch(logoutUser());
-    dispatch(clearUser());
+    // dispatch(clearUser());
+    navigate('/')
     // localStorage.removeItem('persist:auth');
     close();
   };
@@ -28,10 +29,7 @@ const ModalExit = ({ close }) => {
         <p className={s.text}>Do you really want to leave?</p>
         <button
           className={s.buttonYes}
-          onClick={() => {
-            logOut();
-            navigate('/');
-          }}
+          onClick={() => { logOut() }}
         >
           Yes
         </button>

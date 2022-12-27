@@ -3,9 +3,15 @@ import { userInfo, updateBalance } from '../../shared/api/user-api';
 
 export const userInfoOperation = createAsyncThunk(
   'users/get',
-  async (data, { rejectWithValue }) => {
+  async (_, { rejectWithValue, getState }) => {
+    const state = getState();
+    const token = state.auth.token;
+    console.log(token);
+    if (!token) {
+      return rejectWithValue(`token is invalid`);
+    }
     try {
-      const result = await userInfo(data);
+      const result = await userInfo(token);
       return result;
     } catch (error) {
       return rejectWithValue(error.message);
