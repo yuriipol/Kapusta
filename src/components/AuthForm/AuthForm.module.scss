@@ -1,0 +1,257 @@
+@import '../../index.scss';
+
+.form {
+  position: absolute;
+  //   border: 1px solid $color-primary;
+  border-radius: 30px;
+  box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
+  background-color: $bg-color-primary;
+  @include media-query(mobile) {
+    bottom: 105px;
+    left: 20px;
+
+    min-width: 280px;
+    min-height: 496px;
+    padding: 40px 20px;
+  }
+  @include media-query(tablet) {
+    bottom: 155px;
+
+    left: 171px;
+
+    width: 426px;
+    min-height: 552px;
+    padding: 56px 83px;
+  }
+  @include media-query(desktop) {
+    top: 120px;
+    left: 763px;
+  }
+}
+
+.link {
+  display: flex;
+  justify-content: center;
+
+  padding: 10px 19px;
+  background-color: $input-bg-color;
+  // background-color: red;
+  border-radius: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 32px;
+  @include media-query(mobile) {
+    width: 122px;
+  }
+  @include media-query(tablet) {
+    width: 120px;
+    // margin-top: -10px;
+  }
+  @include media-query(desktop) {
+  }
+  &:hover,
+  &:focus {
+    color: $bg-color-primary;
+    background-color: $color-accent;
+    box-shadow: 1px 3px 5px rgba(255, 107, 8, 0.35);
+    scale: 1.05;
+    transition: 500ms;
+  }
+}
+
+.googleIcon {
+  display: inline;
+  margin-right: 10px;
+  width: 18px;
+  height: 18px;
+}
+
+.textUp,
+.textDown {
+  font-family: 'Roboto';
+
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+  text-align: center;
+  color: $color-secondary;
+
+  @include media-query(mobile) {
+    margin-bottom: 16px;
+    width: 222px;
+  }
+  @include media-query(tablet) {
+    margin-bottom: 35px;
+    width: 248px;
+  }
+  @include media-query(desktop) {
+  }
+}
+
+.textDown {
+  text-align: start;
+  @include media-query(mobile) {
+    margin-bottom: 40px;
+    width: 238px;
+  }
+  @include media-query(tablet) {
+    margin-bottom: 50px;
+    width: 248px;
+  }
+  @include media-query(desktop) {
+  }
+}
+
+.formItem {
+  display: flex;
+  flex-direction: column;
+  vertical-align: top;
+  position: relative;
+  @include media-query(mobile) {
+    margin-bottom: 44px;
+  }
+  @include media-query(tablet) {
+    margin-bottom: 57px;
+  }
+  @include media-query(desktop) {
+  }
+}
+
+.formInput {
+  box-sizing: border-box;
+
+  width: 100%;
+  padding: 17px 20px;
+  background-color: $input-bg-color;
+  border-radius: 30px;
+  outline: transparent;
+  border: transparent;
+  &::placeholder {
+    font-family: 'Roboto';
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.14;
+    letter-spacing: 0.04em;
+
+    color: $input-text-color;
+  }
+}
+
+.formLabel {
+  position: absolute;
+  pointer-events: none;
+  left: 0;
+  top: -25px;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: 0.5s;
+  margin-bottom: 12px;
+  letter-spacing: 0.04em;
+
+  font-family: 'Roboto';
+
+  @include media-query(mobile) {
+    font-size: 10px;
+    line-height: 1.2;
+  }
+  @include media-query(tablet) {
+    font-size: 12px;
+    line-height: 1.17;
+  }
+  @include media-query(desktop) {
+  }
+
+  &::before {
+    content: '*';
+
+    display: none;
+    color: #eb5757;
+  }
+}
+
+.formText {
+  display: none;
+}
+
+.formInput:focus ~ .formLabel::before {
+  display: inline-block;
+}
+.formInput:focus ~ .formText {
+  display: block;
+  position: absolute;
+  pointer-events: none;
+  left: 0;
+  top: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: 0.5s;
+  top: 55px;
+
+  font-family: 'Roboto';
+
+  font-size: 10px;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  color: #eb5757;
+}
+
+.btnGroup {
+  display: flex;
+  justify-content: space-between;
+
+  @include media-query(mobile) {
+    margin-top: -4px;
+  }
+  @include media-query(tablet) {
+    margin-top: -17px;
+  }
+  @include media-query(desktop) {
+  }
+}
+
+.btn {
+  font-family: 'Roboto';
+
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.17;
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  background-color: $bg-color-secondary;
+  color: $color-secondary;
+  border: transparent;
+  border-radius: 16px;
+  box-shadow: 1px 3px 5px rgba(82, 85, 95, 0.15);
+
+  @include media-query(mobile) {
+    width: 116px;
+    padding: 13px 12px;
+  }
+  @include media-query(tablet) {
+    padding: 15px 12px;
+    min-width: 122px;
+  }
+  @include media-query(desktop) {
+  }
+
+  &:hover,
+  &:focus {
+    color: $bg-color-primary;
+    background-color: $color-accent;
+    box-shadow: 1px 3px 5px rgba(255, 107, 8, 0.35);
+    scale: 1.05;
+    transition: 500ms;
+  }
+}
+
+//  @include media-query(mobile) {
+
+//   }
+//   @include media-query(tablet) {
+
+//   }
+//   @include media-query(desktop) {
+
+//   }

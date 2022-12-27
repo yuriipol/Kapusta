@@ -1,18 +1,43 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import Notiflix from 'notiflix';
 
-import { registration, login, logout, refresh } from 'shared/api/auth-api';
+import {
+  setToken,
+  login,
+  logout,
+  registration,
+  // userInfo,
+} from '../../shared/api/auth-api';
+
 import { userInfoOperation } from 'redux/user/user-operations';
+
+// const userInfoOperation = createAsyncThunk(
+//   'user/get',
+//   async (data, { rejectWithValue }) => {
+//     try {
+//       const result = await userInfo(data);
+//       return result;
+//     } catch (error) {
+//       return rejectWithValue(error.message);
+//     }
+//   }
+// );
 
 export const registerUser = createAsyncThunk(
   'auth/register',
   async (data, { rejectWithValue }) => {
     try {
       const result = await registration(data);
-      Notiflix.Notify.success(`Welcome to site, ${result.username}`);
-      console.log(result);
+      const [name] = result.email.split('@');
+      Notiflix.Report.success(
+        `${name} registration was successful`,
+        'You need to login',
+        'Okay'
+      );
+
       return result;
     } catch (error) {
+      console.log('error');
       const statusErr = error.response.status;
 
       if (statusErr === 400) {
@@ -35,9 +60,11 @@ export const logInUser = createAsyncThunk(
   async (data, { rejectWithValue, dispatch }) => {
     try {
       const result = await login(data);
-      Notiflix.Notify.success(`Welcome back, ${result.user.username}`);
-      dispatch(userInfoOperation(result.accessToken));
-      dispatch(userInfoOperation(result.accessToken));
+      const [name] = result.user.email.split('@');
+
+      Notiflix.Notify.success(`Welcome ${name}`);
+      dispatch(userInfoOperation(result.token));
+
       return result;
     } catch (error) {
       const statusErr = error.response.status;
@@ -53,34 +80,27 @@ export const logInUser = createAsyncThunk(
   }
 );
 
+export const logInGoogle = createAsyncThunk(
+  'auth/logIn/google',
+  (data, { rejectWithValue, dispatch }) => {
+    setToken(data.token);
+    const [name] = data.email.split('@');
+    Notiflix.Report.success(
+      `${name} `,
+      'google registration was successful',
+      'Okay'
+    );
+    dispatch(userInfoOperation(data.token));
+
+    return data.token;
+  }
+);
+
 export const logoutUser = createAsyncThunk(
   'auth/logOut',
   async (_, { rejectWithValue }) => {
     try {
       const result = await logout();
-
-      return result;
-    } catch (error) {
-      return rejectWithValue(error.message);
-    }
-  }
-);
-
-export const refreshUser = createAsyncThunk(
-  'auth/refresh',
-  async (_, { rejectWithValue, getState, dispatch }) => {
-    const value = getState();
-
-    const refreshToken = value.auth.refreshToken;
-    const sid = value.auth.sid;
-    const data = { refreshToken, seasonid: { sid } };
-
-    if (!sid) {
-      return rejectWithValue(`token is invalid`);
-    }
-    try {
-      const result = await refresh(data);
-      dispatch(userInfoOperation(result.newAccessToken));
       return result;
     } catch (error) {
       return rejectWithValue(error.message);

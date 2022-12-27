@@ -1,0 +1,103 @@
+@import '../../shared/styles/';
+
+.category_list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: 20px;
+
+  @include media-query(tablet) {
+    column-gap: 30px;
+    row-gap: 40px;
+  }
+}
+
+.category_item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100px;
+  min-width: 75px;
+  height: 106px;
+
+  @include media-query(mobile-only) {
+    &::after {
+      content: ' ';
+      bottom: 0;
+      left: 0;
+      width: 100%;
+
+      border-bottom: 1px solid #e0e5eb;
+    }
+  }
+
+  &.active .category_svg_image {
+    fill: #ff751d;
+  }
+  &.active .category_svg_bg {
+    fill: #ffdac0;
+  }
+
+  &:hover .category_svg_image,
+  &:focus .category_svg_image {
+    fill: #ff751d;
+  }
+
+  &:hover .category_svg_bg,
+  &:focus .category_svg_bg {
+    fill: #ffdac0;
+  }
+}
+
+.category_price {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.16;
+
+  letter-spacing: 0.04em;
+
+  margin-bottom: 5px;
+}
+
+.category_name {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.16;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+.category_svg_box {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 5px;
+}
+
+.category_svg_image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  width: 56px;
+  height: 56px;
+  fill: #071f41;
+
+  transition: all $transition;
+}
+
+.category_svg_bg {
+  position: absolute;
+  top: 10%;
+
+  fill: #f5f6fb;
+
+  transition: all $transition;
+}

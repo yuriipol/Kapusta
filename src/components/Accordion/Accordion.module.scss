@@ -1,0 +1,53 @@
+@import '../../index.scss';
+@import '../../shared/styles/index';
+
+.expenses {
+  width: 138px;
+  height: 40px;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  color: $color-primary;
+  background: #fefefe;
+  border-radius: 15px 15px 0px 0px;
+  &:hover,
+  &:focus {
+    color: $color-accent;
+  }
+  @include media-query(tablet-only) {
+  }
+}
+
+.income {
+  composes: expenses;
+  background: #fafbfd;
+}
+
+.wrapper {
+  width: 704px;
+  height: 616px;
+  background: #ffffff;
+
+  box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+  border-radius: 0px 30px 30px 30px;
+}
+
+.buttons_wrapper {
+  @include media-query(tablet-only) {
+    // margin-left: 32px;
+  }
+}
+
+.expenses_income_wrapper {
+  @include media-query(tablet-only) {
+    width: 704px;
+    margin: 0 auto;
+  }
+  @include media-query(desktop) {
+    width: 1098px;
+    margin: 8px auto 0;
+  }
+}

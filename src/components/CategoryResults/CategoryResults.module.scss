@@ -1,0 +1,62 @@
+@import '../../shared/styles/';
+
+.budget_category {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-bottom: 20px;
+
+  @include media-query(tablet) {
+    padding: 20px 50px;
+    margin-bottom: 32px;
+    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+    border-radius: 30px;
+    background-color: #ffffff;
+  }
+
+  @include media-query(desktop) {
+    padding: 20px 200px;
+    margin-bottom: 40px;
+  }
+}
+
+.budget_category_type {
+  display: flex;
+  margin-bottom: 32px;
+}
+
+.budget_category_text {
+  font-family: 'Roboto';
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.buttonPeriod {
+  display: flex;
+  align-items: center;
+  padding-left: 8px;
+  padding-right: 16px;
+  &:last-child {
+    padding-left: 16px;
+    padding-right: 8px;
+  }
+
+  background-color: transparent;
+
+  &:hover .buttonPeriod_svg,
+  &focus .buttonPeriod_svg {
+    scale: 2;
+  }
+}
+.buttonPeriod_svg {
+  width: 4px;
+  height: 10px;
+  stroke: $color-accent;
+  fill: transparent;
+
+  transition: all $transition;
+}

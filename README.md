@@ -1,91 +1,40 @@
-**Read in other languages: [Русский](README.md), [Polska](README.pl.md),
-[English](README.en.md), [Spanish](README.es.md).**
 
-# React homework template
+# GoIT: HTML-SCSS, JavaScript, ReactJS, Node.js 
 
-Этот проект был создан при помощи
-[Create React App](https://github.com/facebook/create-react-app). Для знакомства
-и настройки дополнительных возможностей
-[обратись к документации](https://facebook.github.io/create-react-app/docs/getting-started).
+## Final educational team project "KAPUSTA"
+This Application is the result of efficient work of a friendly team "EASY CODE". This application allows you to track your incomes and expenses. The results can be analyzed using convenient reports and graphs. KAPUSTA is an application implemented on both the front-end and the back-end.
 
-## Подготовка нового проекта
+***
+## This Project
+### On the frot-end:
++ add frameworks and packages in `package.json`
++ the application consists of 3 working pages and `Not found` page for addresses that are not provided 
++ all pages are in the  folder `pages`
++ each page is a group of components located in a folder `components`
++ data used on multiple pages is stored in a global storage with usage of `@reduxjs/toolkit` for convenience
++ connection of routes is implemented through `lazy load`
++ a folder `shared` has been created to save the general application tools
+  
+Тhe project team implemented an adaptive layout with three layouts (mobile phone, tablet, desktop) and used additional libraries for:
++ visualize the data graphically - library `"recharts"`
++ comfortable selecting the desired date - library `"react-datepicker"`
++ creating and styling dropdown lists - library `"react-select"`
 
-1. Убедись что на компьютере установлена LTS-версия Node.js.
-   [Скачай и установи](https://nodejs.org/en/) её если необходимо.
-2. Клонируй этот репозиторий.
-3. Измени имя папки с `react-homework-template` на имя своего проекта.
-4. Создай новый пустой репозиторий на GitHub.
-5. Открой проект в VSCode, запусти терминал и свяжи проект с GitHub-репозиторием
-   [по инструкции](https://docs.github.com/en/get-started/getting-started-with-git/managing-remote-repositories#changing-a-remote-repositorys-url).
-6. Установи базовые зависимости проекта командой `npm install`.
-7. Запусти режим разработки, выполнив команду `npm start`.
-8. Перейди в браузере по адресу [http://localhost:3000](http://localhost:3000).
-   Эта страница будет автоматически перезагружаться после сохранения изменений в
-   файлах проекта.
+***
+### On the back-end:
++ implemented the logic of registration and authentication using e-mail and password, as well as using google capabilities
++ implemented the logic of adding user incomes and expenses 
++ implemented the logic of summaring incomes and expenses for the month of the current year 
++ implemented the logic of receiving detailed information about expenses and incomes for a specific month and year
+  
 
-## Деплой
+***
+### Commands
 
-Продакшн версия проекта будет автоматически проходить линтинг, собираться и
-деплоиться на GitHub Pages, в ветку `gh-pages`, каждый раз когда обновляется
-ветка `main`. Например, после прямого пуша или принятого пул-реквеста. Для этого
-необходимо в файле `package.json` отредактировать поле `homepage`, заменив
-`your_username` и `your_repo_name` на свои, и отправить изменения на GitHub.
+- `npm install` - installation project dependencies
+- `npm start` - start the app in production mode 
+- `lint:js` - running a code check with eslint
 
-```json
-"homepage": "https://your_username.github.io/your_repo_name/"
-```
+***
 
-Далее необходимо зайти в настройки GitHub-репозитория (`Settings` > `Pages`) и
-выставить раздачу продакшн версии файлов из папки `/root` ветки `gh-pages`, если
-это небыло сделано автоматически.
-
-![GitHub Pages settings](./assets/repo-settings.png)
-
-### Статус деплоя
-
-Статус деплоя крайнего коммита отображается иконкой возле его идентификатора.
-
-- **Желтый цвет** - выполняется сборка и деплой проекта.
-- **Зеленый цвет** - деплой завершился успешно.
-- **Красный цвет** - во время линтинга, сборки или деплоя произошла ошибка.
-
-Более детальную информацию о статусе можно посмотреть кликнув по иконке, и в
-выпадающем окне перейти по ссылке `Details`.
-
-![Deployment status](./assets/status.png)
-
-### Живая страница
-
-Через какое-то время, обычно пару минут, живую страницу можно будет посмотреть
-по адресу указанному в отредактированном свойстве `homepage`. Например, вот
-ссылка на живую версию для этого репозитория
-[https://goitacademy.github.io/react-homework-template](https://goitacademy.github.io/react-homework-template).
-
-Если открывается пустая страница, убедись что во вкладке `Console` нет ошибок
-связанных с неправильными путями к CSS и JS файлам проекта (**404**). Скорее
-всего у тебя неправильное значение свойства `homepage` в файле `package.json`.
-
-### Маршрутизация
-
-Если приложение использует библиотеку `react-router-dom` для маршрутизации,
-необходимо дополнительно настроить компонент `<BrowserRouter>`, передав в пропе
-`basename` точное название твоего репозитория. Слеши в начале и конце строки
-обязательны.
-
-```jsx
-<BrowserRouter basename="/your_repo_name/">
-  <App />
-</BrowserRouter>
-```
-
-## Как это работает
-
-![How it works](./assets/how-it-works.png)
-
-1. После каждого пуша в ветку `main` GitHub-репозитория, запускается специальный
-   скрипт (GitHub Action) из файла `.github/workflows/deploy.yml`.
-2. Все файлы репозитория копируются на сервер, где проект инициализируется и
-   проходит линтинг и сборку перед деплоем.
-3. Если все шаги прошли успешно, собранная продакшн версия файлов проекта
-   отправляется в ветку `gh-pages`. В противном случае, в логе выполнения
-   скрипта будет указано в чем проблема.
+ ## "EASY-CODE" TEAM      **(^_^)** 
