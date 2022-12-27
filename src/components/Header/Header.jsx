@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import ModalExit from 'components/ModalExit/ModalExit';
 import logo from '../../shared/images/Header/logo.png';
 import logout from '../../shared/images/Header/logout 1.svg';
@@ -19,7 +20,9 @@ const Header = () => {
 
   return (
     <div className={style.main}>
-      <img className={style.logo} alt="logo" src={logo}></img>
+      <Link to="/">
+        <img className={style.logo} alt="logo" src={logo}></img>
+      </Link>
       <ul className={style.list}>
         {/* <li className={style.userAvatar}>U</li> */}
         <li className={style.userAvatar}>
