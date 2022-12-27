@@ -12,8 +12,9 @@ import Modal from 'components/Modal/Modal';
 import TableForMobile from '../../components/Table/TableForMobile';
 
 import useResizeScreen from 'shared/hooks/useResizeScreen';
+import reworkDataSelect from 'shared/helpers/reworkSelectData';
 
-import { trasactionIncome, trasactionExpense, trasactionAll } from 'shared/api/transactions-api';
+import { trasactionIncome, trasactionExpense, trasactionAll, trasactionCategoryIncome, trasactionCategoryExpense } from 'shared/api/transactions-api';
 
 import Chart from '../../shared/images/HomePage/chart.svg';
 import s from './HomePage.module.scss';
@@ -32,6 +33,9 @@ const HomePage = ({ startDate, setStartDate }) => {
   const [dataIncome, setDataIncome] = useState({})
   const [dataExpense, setDataExpense] = useState({})
   const [dataAllTransaction, setDataAllTransaction] = useState([])
+  const [typeTransaction, setTypeTransaction] = useState('')
+  const [categoryIncomeList, setCategoryIncomeList] = useState([])
+  const [categoryExpensesList, setCategoryExpensesList] = useState([])
   const changeBudgetype = isExpense ? "Expense" : 'Income'
 
   const toggleIsExpanse = () => {
@@ -39,13 +43,17 @@ const HomePage = ({ startDate, setStartDate }) => {
   }
 
   useEffect(() => {
-    // запит за даними
     try {
-      const transactionGetFeth = async () => {
-        if (isMobile) {
-          const resultAllTrans = await trasactionAll()
-          setDataAllTransaction(resultAllTrans.allTransactions)
-        }
+      const transactionFeth = async () => {
+        const dataCategoriesIncome = await trasactionCategoryIncome()
+        const newDateIncome = reworkDataSelect(dataCategoriesIncome)
+        setCategoryIncomeList(newDateIncome)
+        const dataCategoriesExpense = await trasactionCategoryExpense()
+        const newDateExpense = reworkDataSelect(dataCategoriesExpense)
+        setCategoryExpensesList(newDateExpense)
+        const resultAllTrans = await trasactionAll()
+        setDataAllTransaction(resultAllTrans.allTransactions)
+
 
         if (isExpense) {
           const resultExpense = await trasactionExpense()
@@ -56,11 +64,11 @@ const HomePage = ({ startDate, setStartDate }) => {
         }
       }
 
-      transactionGetFeth()
+      transactionFeth()
     } catch (error) {
       console.log(error.message);
     }
-  }, [isExpense, isMobile]);
+  }, [isExpense]);
 
   useEffect(() => {
     if (token) {
@@ -70,15 +78,14 @@ const HomePage = ({ startDate, setStartDate }) => {
 
   const onClickToggleModal = () => {
     setIsOpenModal(!isOpenModal);
-    toggleIsExpanse()
+
   };
-
-
-
-  const props = { isExpense, dataIncome, dataExpense, dataAllTransaction, changeBudgetype, toggleIsExpanse }
-
-
-
+  const onClickBtnTypeMobile = (e) => {
+    const btnText = e.target.innerText
+    onClickToggleModal()
+    setTypeTransaction(btnText)
+  }
+  const props = { isExpense, dataIncome, setDataIncome, dataExpense, setDataExpense, dataAllTransaction, setDataAllTransaction, changeBudgetype, toggleIsExpanse, categoryIncomeList, categoryExpensesList }
 
   if (isMobile) {
     return (
@@ -101,21 +108,21 @@ const HomePage = ({ startDate, setStartDate }) => {
           <button
             className={s.button}
             type="button"
-            onClick={onClickToggleModal}
+            onClick={onClickBtnTypeMobile}
           >
             Expenses
           </button>
           <button
             className={s.button}
             type="button"
-            onClick={onClickToggleModal}
+            onClick={onClickBtnTypeMobile}
           >
             Income
           </button>
         </div>
         {isOpenModal && (
           <Modal close={onClickToggleModal}>
-            <Product />
+            <Product startDate={startDate} typeTransaction={typeTransaction} closeModal={onClickToggleModal} categoryIncomeList={categoryIncomeList} categoryExpensesList={categoryExpensesList} setDataAllTransaction={setDataAllTransaction} />
           </Modal>
         )}
       </>

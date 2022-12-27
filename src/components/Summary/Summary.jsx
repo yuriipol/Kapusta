@@ -1,15 +1,16 @@
+import { nanoid } from '../../../node_modules/nanoid/index';
 import s from './Summary.module.scss';
 
+
 const Summary = ({ transactionList }) => {
-  console.log(transactionList)
   const trasactionSummary = transactionList?.monthStats
 
   const reworkSummary = trasactionSummary ? Object.entries(trasactionSummary) : []
-  const fiterArr = reworkSummary.filter(el => el[1] !== 'N/A')
+  const fiterArr = reworkSummary?.filter(el => el[1] !== 'N/A')
   const rows = fiterArr?.map((el) => {
 
     return (
-      <tr className={s.row}>
+      <tr key={nanoid(5)} className={s.row}>
         <td className={s.desc}>{el[0]}</td>
         <td className={s.desc}>{el[1] === 'N/A' ? '00.00' : el[1].toFixed(2)
           .toString()

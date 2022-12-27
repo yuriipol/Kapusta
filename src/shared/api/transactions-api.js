@@ -25,3 +25,34 @@ export const trasactionAll = async () => {
 
   return result;
 };
+
+export const postTrasactionIncome = async data => {
+  await instance.post(`api/transaction/income`, data);
+
+  return;
+};
+
+export const postTrasactionExpense = async data => {
+  await instance.post(`api/transaction/expense`, data);
+
+  return;
+};
+
+export const trasactionCategoryIncome = async () => {
+  const { data: result } = await instance.get(
+    `api/transaction/income-categories`
+  );
+
+  return result;
+};
+
+export const trasactionCategoryExpense = async () => {
+  const { data: result } = await instance.get(
+    `api/transaction/expense-categories`
+  );
+
+  return result;
+};
+export const trasactionDelete = async data => {
+  await instance.delete(`api/transaction/${data}`);
+};

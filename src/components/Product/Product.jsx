@@ -1,44 +1,67 @@
 import { useState } from 'react';
-// import { useDispatch } from 'react-redux';
 import Calculator from '../../shared/images/HomePage/calculator.svg';
 import CreatableSelect from 'react-select/creatable';
-import options from '../../shared/options';
+
+
+
+import { postTrasactionExpense, postTrasactionIncome, trasactionAll } from 'shared/api/transactions-api';
 
 import s from './Product.module.scss';
 
-const Product = () => {
+const Product = ({ startDate, typeTransaction, closeModal, categoryIncomeList, categoryExpensesList, setDataAllTransaction }) => {
   const [state, setState] = useState({
     amount: '',
-    product: '',
+    category: '',
     description: '',
+    date: startDate
   });
 
-  const { amount, product } = state;
-  // const dispatch = useDispatch();
-
+  const { amount, description } = state;
   const handleChange = event => {
     const { name, value } = event.currentTarget;
     setState({ ...state, [name]: value });
     console.log(value);
   };
 
-  const handleSelect = event => {
-    console.log(event.target.value);
-    setState({
-      ...state,
-      description: event.target.value,
-    });
+  const handleSelect = e => {
+    if (e === null) {
+      setState(prevState => ({
+        ...prevState,
+        category: '',
+      }));
+      return;
+    }
+    const { value } = e;
+    setState(prevState => ({
+      ...prevState,
+      category: value,
+    }));
   };
+  const transactionAllFetch = async () => {
+    const dateTransactionAll = await trasactionAll()
+
+    setDataAllTransaction(dateTransactionAll.allTransactions)
+  }
 
   const handleSubmit = event => {
     event.preventDefault();
-    // console.log(state);
-
+    if (typeTransaction === 'INCOME') {
+      postTrasactionIncome(state)
+    }
+    if (typeTransaction === 'EXPENSES') {
+      postTrasactionExpense(state)
+    }
+    transactionAllFetch()
     reset();
+    closeModal()
   };
 
   const reset = () => {
-    setState({ amount: '', product: '' });
+    setState({
+      ...state, amount: '',
+      category: '',
+      description: '',
+    });
   };
   return (
     <form onSubmit={handleSubmit}>
@@ -47,8 +70,8 @@ const Product = () => {
           className={s.descriptionInput}
           onChange={handleChange}
           type="text"
-          name="product"
-          value={product}
+          name="description"
+          value={description}
           placeholder="Product description"
         />
         <div className={s.select}>
@@ -57,8 +80,8 @@ const Product = () => {
             className={'product-select'}
             classNamePrefix={'custom'}
             placeholder="Product category"
-            options={options}
-            name="description"
+            options={typeTransaction === 'EXPENSES' ? categoryExpensesList : categoryIncomeList}
+            name="category"
           />
         </div>
         <div className={s.wrapper}>

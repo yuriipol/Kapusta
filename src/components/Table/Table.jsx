@@ -2,15 +2,33 @@
 import Basket from '../../shared/images/HomePage/delete.svg';
 import s from './Table.module.scss';
 
+import { trasactionDelete, trasactionExpense, trasactionIncome } from 'shared/api/transactions-api';
 
-const Table = ({ transactionList, budgetType }) => {
+const Table = ({ transactionList, budgetType, setDataExpense, setDataIncome }) => {
   const checkType = budgetType === "Expense"
   const dataTransaction = checkType ? transactionList?.expense : transactionList?.incomes
 
+  const fetchTransaction = async () => {
+    if (checkType) {
+      const newDataExpense = await trasactionExpense()
+      console.log(newDataExpense);
+      setDataExpense(newDataExpense)
+    } else {
+      const newDataIncome = await trasactionIncome()
+      console.log(newDataIncome);
+      setDataIncome(newDataIncome)
+    }
+  }
+
+  const onClickDeleteTraansaction = (e) => {
+    const id = e.currentTarget.id
+    trasactionDelete(id)
+    fetchTransaction()
+  }
   const rows = dataTransaction?.map(({ date, description, category, amount, _id }) => {
     return (
       <tr key={_id} className={s.tRow}>
-        <td className={s.tD_data}>{date}</td>
+        <td className={s.tD_data}>{new Date(date).toLocaleDateString()}</td>
         <td className={s.tD_descr}>{description}</td>
         <td className={s.tD_categ}>{category}</td>
         <td className={checkType ? s.outcom : s.incom}>
@@ -22,7 +40,7 @@ const Table = ({ transactionList, budgetType }) => {
           <span className={checkType ? s.outcom : s.incom}>UAH.</span>
         </td>
         <td className={s.tD_bask}>
-          <button type="button" className={s.helper}>
+          <button type="button" className={s.helper} id={_id} onClick={onClickDeleteTraansaction}>
             <img className={s.basket} src={Basket} alt="basket" />
           </button>
         </td>
